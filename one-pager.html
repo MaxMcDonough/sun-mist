@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sun Mist — One Pager</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --sand: #F5EDE3;
+    --sand-light: #FBF7F2;
+    --gold: #D4A843;
+    --gold-light: #F0D68A;
+    --ocean: #2B6E8A;
+    --ocean-deep: #1A4A5E;
+    --ocean-light: #A8D5E2;
+    --sky: #E8F4F8;
+    --white: #FFFFFF;
+    --charcoal: #2C2C2C;
+    --warm-gray: #6B6358;
+    --coral: #E8835C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--charcoal);
+    background: var(--white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px 60px;
+    overflow: hidden;
+    background: linear-gradient(165deg, #1A4A5E 0%, #2B6E8A 30%, #5BA0B5 55%, #D4A843 80%, #F0D68A 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 60% at 70% 20%, rgba(255,255,255,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 30% 80%, rgba(212,168,67,0.25) 0%, transparent 50%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 250px;
+    background: linear-gradient(to top, rgba(26,74,94,0.6), transparent);
+  }
+
+  /* Animated mist particles */
+  .mist-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .mist-particles span {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    animation: float-mist linear infinite;
+  }
+
+  .mist-particles span:nth-child(1) { width: 300px; height: 300px; left: 10%; top: 20%; animation-duration: 18s; }
+  .mist-particles span:nth-child(2) { width: 200px; height: 200px; left: 60%; top: 50%; animation-duration: 22s; animation-delay: -5s; }
+  .mist-particles span:nth-child(3) { width: 400px; height: 400px; left: 40%; top: -10%; animation-duration: 25s; animation-delay: -10s; }
+  .mist-particles span:nth-child(4) { width: 150px; height: 150px; left: 80%; top: 30%; animation-duration: 15s; animation-delay: -3s; }
+  .mist-particles span:nth-child(5) { width: 250px; height: 250px; left: 20%; top: 60%; animation-duration: 20s; animation-delay: -8s; }
+
+  @keyframes float-mist {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+    25% { transform: translateY(-40px) translateX(30px) scale(1.1); opacity: 0.5; }
+    50% { transform: translateY(-20px) translateX(-20px) scale(0.95); opacity: 0.4; }
+    75% { transform: translateY(-60px) translateX(15px) scale(1.05); opacity: 0.3; }
+    100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 30px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 2.2vw, 22px);
+    font-weight: 300;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 16px;
+  }
+
+  .hero-tagline {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    max-width: 520px;
+    margin-top: 24px;
+    line-height: 1.8;
+  }
+
+  .hero-visual-label {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+  }
+
+  .hero-visual-label .sun-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 12px rgba(212,168,67,0.5);
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 100px 60px;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-number {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .section h2 em {
+    font-style: italic;
+    color: var(--ocean);
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--warm-gray);
+    margin-bottom: 40px;
+  }
+
+  .section p {
+    font-size: 16px;
+    color: #4A4A4A;
+    max-width: 680px;
+    line-height: 1.85;
+  }
+
+  .section p + p { margin-top: 16px; }
+
+  /* Callout */
+  .callout {
+    margin-top: 36px;
+    padding: 24px 30px;
+    background: linear-gradient(135deg, var(--sky), var(--sand-light));
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ocean-deep);
+    line-height: 1.6;
+  }
+
+  /* ── WHAT THIS IS ── */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    margin-top: 40px;
+  }
+
+  .eliminates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .eliminates-list .item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: var(--white);
+    border: 1px solid #EDE8E1;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--charcoal);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .eliminates-list .item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .eliminates-list .item .x {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #FDEAE4;
+    color: var(--coral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 16px 24px;
+    background: var(--ocean);
+    color: var(--white);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .time-badge strong {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  /* ── WHY IT WORKS ── */
+  .bg-sand { background: var(--sand-light); }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+
+  .problem-card {
+    padding: 24px;
+    background: var(--white);
+    border-radius: 14px;
+    border: 1px solid #EDE8E1;
+    transition: transform 0.2s;
+  }
+
+  .problem-card:hover { transform: translateY(-3px); }
+
+  .problem-card .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .problem-card:nth-child(1) .icon { background: #FFF3E0; }
+  .problem-card:nth-child(2) .icon { background: #E3F2FD; }
+  .problem-card:nth-child(3) .icon { background: #FDE8E4; }
+  .problem-card:nth-child(4) .icon { background: #E8F5E9; }
+
+  .problem-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+
+  .problem-card p {
+    font-size: 14px;
+    color: var(--warm-gray);
+    line-height: 1.6;
+  }
+
+  .opportunity-banner {
+    padding: 28px 32px;
+    background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+    border-radius: 16px;
+    color: var(--white);
+    text-align: center;
+  }
+
+  .opportunity-banner p {
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .opportunity-banner strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .steps {
+    display: flex;
+    gap: 0;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 60px;
+    right: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), var(--ocean-light), var(--ocean));
+    z-index: 0;
+  }
+
+  .step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 16px;
+  }
+
+  .step-num {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ocean-deep);
+    margin: 0 auto 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .step h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--warm-gray);
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  .step .speech {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
+    background: var(--sky);
+    border-radius: 12px 12px 12px 2px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ocean-deep);
+  }
+
+  .payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .payment-methods span {
+    padding: 6px 14px;
+    background: var(--white);
+    border: 1px solid #E0DAD2;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .result-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    padding: 30px 0;
+    border-top: 1px solid #EDE8E1;
+  }
+
+  .result-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .result-item .check {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #E8F5E9;
+    color: #43A047;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .result-quote {
+    text-align: center;
+    margin-top: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ocean);
+  }
+
+  /* ── MIST IMAGE BANNER ── */
+  .mist-banner {
+    height: 320px;
+    background: linear-gradient(135deg, #A8D5E2 0%, #E8F4F8 40%, rgba(255,255,255,0.9) 60%, #F0D68A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mist-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(255,255,255,0.6) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(168,213,226,0.4) 0%, transparent 40%);
+  }
+
+  .mist-banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .mist-banner-content .mist-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  .mist-banner-content p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    font-weight: 600;
+    max-width: 100%;
+  }
+
+  /* ── OCEAN CITY ── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .benefit-card {
+    padding: 32px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid #EDE8E1;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  }
+
+  .benefit-card .card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .benefit-card:nth-child(1) .card-icon { background: #FDE8E4; }
+  .benefit-card:nth-child(2) .card-icon { background: #E8F5E9; }
+  .benefit-card:nth-child(3) .card-icon { background: #E3F2FD; }
+  .benefit-card:nth-child(4) .card-icon { background: #FFF8E1; }
+
+  .benefit-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  .benefit-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .benefit-card ul li {
+    padding: 6px 0;
+    font-size: 15px;
+    color: #4A4A4A;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .benefit-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── OPERATOR ── */
+  .operator-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    margin-top: 40px;
+  }
+
+  .trait-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .trait {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: var(--white);
+    border: 1px solid #EDE8E1;
+    border-radius: 12px;
+    font-size: 15px;
+    color: var(--charcoal);
+  }
+
+  .trait .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ocean-light);
+    flex-shrink: 0;
+  }
+
+  .appearance-box {
+    padding: 28px;
+    background: var(--sky);
+    border-radius: 16px;
+    margin-top: 20px;
+  }
+
+  .appearance-box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin-bottom: 14px;
+  }
+
+  .appearance-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .appearance-tags span {
+    padding: 8px 16px;
+    background: var(--white);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .not-list {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .not-list span {
+    padding: 8px 16px;
+    background: #FFF3F0;
+    border: 1px solid #FDDDD5;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--coral);
+  }
+
+  .positioned-as {
+    margin-top: 32px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+    border-radius: 14px;
+    color: var(--white);
+  }
+
+  .positioned-as .label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+
+  .positioned-as p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    max-width: 100%;
+  }
+
+  /* ── OPERATOR BANNER ── */
+  .operator-banner {
+    height: 280px;
+    background: linear-gradient(135deg, var(--sand) 0%, var(--sand-light) 50%, var(--ocean-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .operator-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5) 0%, transparent 60%);
+  }
+
+  .operator-banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .operator-banner-content .walk-icon {
+    font-size: 56px;
+    margin-bottom: 14px;
+    opacity: 0.6;
+  }
+
+  .operator-banner-content p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    font-weight: 600;
+    max-width: 100%;
+  }
+
+  /* ── PILOT ── */
+  .pilot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .pilot-card {
+    padding: 32px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid #EDE8E1;
+    text-align: center;
+  }
+
+  .pilot-card .big-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--ocean);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .pilot-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .pilot-card p {
+    font-size: 14px;
+    color: var(--warm-gray);
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  .objectives {
+    display: flex;
+    gap: 20px;
+    margin-top: 36px;
+  }
+
+  .objective {
+    flex: 1;
+    padding: 20px 24px;
+    background: var(--sky);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .objective .obj-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .objective p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ocean-deep);
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  /* ── SAFETY ── */
+  .safety-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .safety-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid #EDE8E1;
+  }
+
+  .safety-item .shield {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #E8F5E9;
+    color: #43A047;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .safety-item p {
+    font-size: 15px;
+    color: #4A4A4A;
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  .coverage-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .coverage-tag {
+    padding: 10px 20px;
+    background: var(--ocean);
+    color: var(--white);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 80px 60px;
+    background: linear-gradient(165deg, var(--ocean-deep) 0%, var(--ocean) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(212,168,67,0.12) 0%, transparent 70%);
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  .footer p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    margin-top: 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+  }
+
+  .footer-logo span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .section { padding: 70px 32px; }
+    .hero { padding: 60px 32px; }
+    .what-grid, .operator-layout, .benefits-grid, .problems-grid, .safety-items { grid-template-columns: 1fr; }
+    .pilot-grid { grid-template-columns: 1fr; }
+    .steps { flex-direction: column; gap: 32px; }
+    .steps::before { display: none; }
+    .result-row { flex-direction: column; align-items: center; gap: 16px; }
+    .objectives { flex-direction: column; }
+    .footer { padding: 60px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+  <div class="mist-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-visual-label">
+    <div class="sun-icon"></div>
+    Mobile Beach Service
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">On-Demand Sunscreen Service</div>
+    <h1>Sun Mist
+      <span>Mist. Move. Enjoy.</span>
+    </h1>
+    <p class="hero-tagline">A simple, modern beach service that improves the visitor experience while promoting sun safety — with minimal footprint, no infrastructure, and immediate impact.</p>
+  </div>
+</section>
+
+<!-- ════════════ 1. WHAT THIS IS ════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-number">01 — What This Is</div>
+    <h2>Sunscreen, <em>simplified.</em></h2>
+    <p class="section-subtitle">Turning sunscreen into a service, not a product.</p>
+
+    <div class="what-grid">
+      <div>
+        <p>Sun Mist is a mobile, on-demand sunscreen application service designed specifically for high-traffic beaches.</p>
+        <p>Trained operators walk designated beach areas equipped with lightweight backpack misting systems, offering fast, clean SPF application to beachgoers.</p>
+        <p>Each application takes 10–20 seconds, delivering even coverage without physical contact.</p>
+
+        <div class="time-badge">
+          <strong>10–20s</strong> per application &nbsp;·&nbsp; Even coverage &nbsp;·&nbsp; No contact
+        </div>
+      </div>
+
+      <div>
+        <p style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--warm-gray); margin-bottom: 8px;">The service eliminates:</p>
+        <div class="eliminates-list">
+          <div class="item"><span class="x">✕</span> Carrying sunscreen</div>
+          <div class="item"><span class="x">✕</span> Reapplying manually</div>
+          <div class="item"><span class="x">✕</span> Using messy or expired products</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 2. WHY IT WORKS ════════════ -->
+<section class="section bg-sand">
+  <div class="section-inner">
+    <div class="section-number">02 — Why It Works</div>
+    <h2>Built around <em>real beach behavior</em></h2>
+    <p class="section-subtitle">Sun Mist works because it solves real, observable problems.</p>
+
+    <div class="problems-grid">
+      <div class="problem-card">
+        <div class="icon">☀️</div>
+        <h4>Forgotten & Under-Applied</h4>
+        <p>People forget sunscreen or under-apply it, leading to burns and long-term skin damage.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🔄</div>
+        <h4>Reapplication Skipped</h4>
+        <p>Reapplication is inconvenient and often skipped entirely, especially during activities.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🚫</div>
+        <h4>Messy Aerosols</h4>
+        <p>Aerosol cans are messy, wasteful, and provide inconsistent coverage at best.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">👨‍👩‍👧‍👦</div>
+        <h4>Family Struggle</h4>
+        <p>Families especially struggle to manage sunscreen use across multiple children.</p>
+      </div>
+    </div>
+
+    <div class="opportunity-banner">
+      <strong>A natural opportunity</strong>
+      <p>Fast, impulse, convenience-based service — meeting people exactly where the problem occurs, on the beach, in real time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 3. THE EXPERIENCE ════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-number">03 — The Experience</div>
+    <h2>Quick. Clean. <em>Professional.</em></h2>
+    <p class="section-subtitle">The customer experience is simple and intuitive.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Operator Approaches</h4>
+        <div class="speech">"Quick SPF mist? SPF 30 or 50"</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Customer Chooses</h4>
+        <p>Select SPF level and desired coverage area</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Light Mist Applied</h4>
+        <p>From a safe distance — no physical contact</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Quick Payment</h4>
+        <div class="payment-methods">
+          <span>Tap</span>
+          <span>Venmo</span>
+          <span>QR Code</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-row">
+      <div class="result-item"><span class="check">✓</span> Even, visible coverage</div>
+      <div class="result-item"><span class="check">✓</span> No greasy hands</div>
+      <div class="result-item"><span class="check">✓</span> No interruption</div>
+    </div>
+
+    <div class="result-quote">"One less thing to worry about."</div>
+  </div>
+</section>
+
+<!-- ════════════ MIST BANNER ════════════ -->
+<div class="mist-banner">
+  <div class="mist-banner-content">
+    <div class="mist-icon">💨</div>
+    <p>Light Mist · Clean Application · Instant Coverage</p>
+  </div>
+</div>
+
+<!-- ════════════ 4. WHY OCEAN CITY SHOULD CARE ════════════ -->
+<section class="section bg-sand">
+  <div class="section-inner">
+    <div class="section-number">04 — Why Ocean City Should Care</div>
+    <h2>A better beach experience <em>with no downside</em></h2>
+    <p class="section-subtitle">Clear public and operational benefits.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="card-icon">❤️</div>
+        <h4>Public Health</h4>
+        <ul>
+          <li>Encourages proper sunscreen use and reapplication</li>
+          <li>Reduces sunburn risk, especially for families and children</li>
+        </ul>
+      </div>
+      <div class="benefit-card">
+        <div class="card-icon">🌿</div>
+        <h4>Environmental Impact</h4>
+        <ul>
+          <li>Reduces single-use plastic bottles</li>
+          <li>Eliminates aerosol waste on beaches</li>
+        </ul>
+      </div>
+      <div class="benefit-card">
+        <div class="card-icon">⭐</div>
+        <h4>Visitor Experience</h4>
+        <ul>
+          <li>Adds a convenient, modern beach amenity</li>
+          <li>Enhances overall perception of the beach</li>
+        </ul>
+      </div>
+      <div class="benefit-card">
+        <div class="card-icon">⚙️</div>
+        <h4>Operational Simplicity</h4>
+        <ul>
+          <li>No fixed infrastructure or utilities required</li>
+          <li>Fully mobile and self-contained service</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">High-value service with minimal footprint.</div>
+  </div>
+</section>
+
+<!-- ════════════ 5. OPERATOR MODEL ════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-number">05 — Operator Model</div>
+    <h2>Professional, approachable, <em>and beach-appropriate</em></h2>
+
+    <div class="operator-layout">
+      <div>
+        <p style="font-weight: 600; margin-bottom: 16px;">Sun Mist operators are:</p>
+        <div class="trait-list">
+          <div class="trait"><span class="dot"></span> University-aged seasonal staff</div>
+          <div class="trait"><span class="dot"></span> Clean, athletic, and well-presented</div>
+          <div class="trait"><span class="dot"></span> Trained in customer interaction & application technique</div>
+        </div>
+
+        <div class="not-list">
+          <span>✕ Not lifeguards</span>
+          <span>✕ Not enforcement</span>
+          <span>✕ Not aggressive vendors</span>
+        </div>
+
+        <div class="positioned-as">
+          <div class="label">Positioned As</div>
+          <p>"Helpful beach service" — not a sales operation</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="appearance-box">
+          <h4>Appearance</h4>
+          <div class="appearance-tags">
+            <span>Sand tones</span>
+            <span>Blues</span>
+            <span>Greens</span>
+            <span>Sunglasses</span>
+            <span>Hats</span>
+            <span>Clean presentation</span>
+            <span>Clearly identifiable</span>
+          </div>
+        </div>
+
+        <div class="appearance-box" style="margin-top: 16px; background: #FFF8E1;">
+          <h4 style="color: var(--gold);">Role on the Beach</h4>
+          <div class="appearance-tags">
+            <span>Helpful presence</span>
+            <span>Light support (band-aids, basic aid)</span>
+            <span>Additional "eyes and ears"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ OPERATOR BANNER ════════════ -->
+<div class="operator-banner">
+  <div class="operator-banner-content">
+    <div class="walk-icon">🏖️</div>
+    <p>Approachable · Professional · Beach-Ready</p>
+  </div>
+</div>
+
+<!-- ════════════ 6. PILOT PROPOSAL ════════════ -->
+<section class="section bg-sand">
+  <div class="section-inner">
+    <div class="section-number">06 — Pilot Proposal</div>
+    <h2>Start small. Prove it. <em>Scale responsibly.</em></h2>
+    <p class="section-subtitle">Initial deployment would be intentionally limited.</p>
+
+    <div class="pilot-grid">
+      <div class="pilot-card">
+        <div class="big-num">1–2</div>
+        <h4>Operators</h4>
+        <p>Lean team to test demand and refine the service model</p>
+      </div>
+      <div class="pilot-card">
+        <div class="big-num">⊞</div>
+        <h4>Defined Beach Zones</h4>
+        <p>Specific, manageable areas to ensure quality coverage</p>
+      </div>
+      <div class="pilot-card">
+        <div class="big-num">☀️</div>
+        <h4>Peak Hours</h4>
+        <p>Midday and high UV periods for maximum relevance</p>
+      </div>
+    </div>
+
+    <div class="objectives">
+      <div class="objective">
+        <div class="obj-icon">📊</div>
+        <p>Evaluate customer demand</p>
+      </div>
+      <div class="objective">
+        <div class="obj-icon">🔄</div>
+        <p>Confirm operational flow</p>
+      </div>
+      <div class="objective">
+        <div class="obj-icon">✓</div>
+        <p>Ensure compatibility with beach ops</p>
+      </div>
+    </div>
+
+    <div class="callout">Outcome: Data-driven decision on expansion.</div>
+  </div>
+</section>
+
+<!-- ════════════ 7. SAFETY & COMPLIANCE ════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-number">07 — Safety & Compliance</div>
+    <h2>Controlled, responsible, <em>and low-risk</em></h2>
+    <p class="section-subtitle">Clear safety protocols designed to align with existing beach standards.</p>
+
+    <div class="safety-items">
+      <div class="safety-item">
+        <span class="shield">✓</span>
+        <p>Uses commercially manufactured sunscreen products only</p>
+      </div>
+      <div class="safety-item">
+        <span class="shield">✓</span>
+        <p>Clearly communicates SPF levels (30 and 50)</p>
+      </div>
+      <div class="safety-item">
+        <span class="shield">✓</span>
+        <p>Maintains controlled spray distance — no contact</p>
+      </div>
+      <div class="safety-item">
+        <span class="shield">✓</span>
+        <p>Optional eye awareness guidance for customers</p>
+      </div>
+      <div class="safety-item">
+        <span class="shield">✓</span>
+        <p>Operators trained in proper application technique</p>
+      </div>
+      <div class="safety-item">
+        <span class="shield">✓</span>
+        <p>Non-invasive, non-disruptive service model</p>
+      </div>
+    </div>
+
+    <div class="coverage-row">
+      <span class="coverage-tag">General Liability Insurance</span>
+      <span class="coverage-tag">Defined Operating Zones</span>
+      <span class="coverage-tag">Beach Safety Aligned</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<section class="footer">
+  <div class="footer-content">
+    <h2>A modern, environmentally responsible service that enhances the beach experience.</h2>
+    <p>Sun Mist promotes sun safety with minimal impact and immediate value — no infrastructure, no downside, just a better day at the beach.</p>
+    <div class="footer-logo">
+      Sun Mist
+      <span>Mist. Move. Enjoy.</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

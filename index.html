@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sun Mist — Company Hub</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --sand: #F5EDE3;
+    --sand-light: #FBF7F2;
+    --gold: #D4A843;
+    --gold-light: #F0D68A;
+    --gold-dark: #B8912E;
+    --ocean: #2B6E8A;
+    --ocean-deep: #1A4A5E;
+    --ocean-light: #A8D5E2;
+    --sky: #E8F4F8;
+    --white: #FFFFFF;
+    --charcoal: #2C2C2C;
+    --warm-gray: #6B6358;
+    --coral: #E8835C;
+    --green: #43A047;
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--sand-light);
+    color: var(--charcoal);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ═══════════════════════════════
+     SCREEN STATES — hidden by default, visible when .active
+     ═══════════════════════════════ */
+  #dashboard { display: none; }
+  #dashboard.active { display: block; }
+  #viewer { display: none; }
+  #viewer.active { display: block; }
+
+  /* ═══════════════════════════════
+     LOGIN
+     ═══════════════════════════════ */
+  #loginScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(165deg, #0F2E3D 0%, #1A4A5E 25%, #2B6E8A 50%, #D4A843 85%, #F0D68A 100%);
+  }
+
+  #loginScreen.hidden { display: none; }
+
+  .login-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .login-bg .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: orb-float infinite ease-in-out;
+  }
+
+  .login-bg .orb:nth-child(1) {
+    width: 600px; height: 600px;
+    background: rgba(168,213,226,0.15);
+    top: -10%; left: -10%;
+    animation-duration: 20s;
+  }
+
+  .login-bg .orb:nth-child(2) {
+    width: 400px; height: 400px;
+    background: rgba(212,168,67,0.12);
+    bottom: -5%; right: -5%;
+    animation-duration: 25s;
+    animation-delay: -8s;
+  }
+
+  .login-bg .orb:nth-child(3) {
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.06);
+    top: 40%; left: 50%;
+    animation-duration: 18s;
+    animation-delay: -4s;
+  }
+
+  @keyframes orb-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(40px, -30px) scale(1.05); }
+    50% { transform: translate(-20px, 20px) scale(0.95); }
+    75% { transform: translate(30px, 40px) scale(1.02); }
+  }
+
+  .login-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 420px;
+    padding: 0 24px;
+  }
+
+  .login-logo {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  .login-logo svg {
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 20px rgba(212,168,67,0.3));
+  }
+
+  .login-logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .login-logo .tagline {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 10px;
+  }
+
+  .login-card {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+  }
+
+  .login-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .login-card .subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 8px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 15px 18px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--white);
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .form-group input::placeholder { color: rgba(255,255,255,0.3); }
+
+  .form-group input:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 3px rgba(212,168,67,0.15);
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .login-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(212,168,67,0.35);
+  }
+
+  .login-btn:active { transform: translateY(0); }
+
+  .login-error {
+    display: none;
+    padding: 12px 16px;
+    background: rgba(232,131,92,0.15);
+    border: 1px solid rgba(232,131,92,0.3);
+    border-radius: 10px;
+    font-size: 13px;
+    color: #FFB299;
+    margin-bottom: 20px;
+    animation: shake 0.4s ease;
+  }
+
+  .login-error.show { display: block; }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+
+  .login-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ═══════════════════════════════
+     DASHBOARD
+     ═══════════════════════════════ */
+  #dashboard {
+    min-height: 100vh;
+    background: var(--sand-light);
+  }
+
+  .dash-header {
+    padding: 40px 48px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .dash-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  .dash-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .dash-logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ocean-deep);
+  }
+
+  .dash-logo .badge {
+    padding: 4px 10px;
+    background: var(--sky);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ocean);
+    letter-spacing: 0.5px;
+  }
+
+  .dash-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dash-user .greeting {
+    font-size: 14px;
+    color: var(--warm-gray);
+    text-align: right;
+  }
+
+  .dash-user .greeting strong {
+    display: block;
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+
+  .avatar-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .dash-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 60px;
+  }
+
+  /* ── HERO CARD (Main Website) ── */
+  .hero-card {
+    display: flex;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.1);
+  }
+
+  .hero-card:hover .hero-card-visual svg { transform: scale(1.05); }
+
+  .hero-card-visual {
+    flex: 0 0 420px;
+    min-height: 280px;
+    background: linear-gradient(165deg, #0F2E3D 0%, #1A4A5E 25%, #2B6E8A 50%, #D4A843 85%, #F0D68A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 60% at 60% 20%, rgba(255,255,255,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 30% 80%, rgba(212,168,67,0.2) 0%, transparent 50%);
+  }
+
+  .hero-card-visual svg {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2));
+  }
+
+  .hero-card-text {
+    flex: 1;
+    padding: 40px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-card-text .card-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 18px;
+    width: fit-content;
+  }
+
+  .hero-card-text .card-label .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero-card-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-card-text p {
+    font-size: 15px;
+    color: var(--warm-gray);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    max-width: 460px;
+  }
+
+  .hero-card-text .open-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ocean);
+    transition: gap 0.2s;
+  }
+
+  .hero-card:hover .open-link { gap: 14px; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 18px;
+    padding-left: 2px;
+  }
+
+  /* ── CARD GRID ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .nav-card {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  }
+
+  .nav-card:hover .card-visual-inner { transform: scale(1.03); }
+
+  .card-visual {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-visual-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .card-visual .card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .card-info {
+    padding: 24px 26px;
+  }
+
+  .card-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+
+  .card-info p {
+    font-size: 13px;
+    color: var(--warm-gray);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .card-info .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid #F0ECE6;
+  }
+
+  .card-info .card-footer .meta {
+    font-size: 12px;
+    color: var(--warm-gray);
+  }
+
+  .card-info .card-footer .arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .nav-card:hover .arrow {
+    background: var(--ocean);
+  }
+
+  .nav-card:hover .arrow svg path { stroke: var(--white); }
+
+  .card-icon-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Visual backgrounds */
+  .vis-brand { background: linear-gradient(135deg, #1A4A5E, #2B6E8A, #A8D5E2); }
+  .vis-ux { background: linear-gradient(135deg, var(--sand), var(--gold-light), var(--coral)); }
+  .vis-pitch { background: linear-gradient(135deg, var(--ocean-deep), var(--gold-dark), var(--gold)); }
+  .vis-onepager { background: linear-gradient(135deg, #A8D5E2, #E8F4F8, var(--gold-light)); }
+  .vis-pod { background: linear-gradient(135deg, var(--sky), var(--ocean-light), var(--ocean)); }
+
+  .tag-brand { background: rgba(43,110,138,0.9); color: #fff; }
+  .tag-ux { background: rgba(232,131,92,0.9); color: #fff; }
+  .tag-pitch { background: rgba(212,168,67,0.9); color: #fff; }
+  .tag-overview { background: rgba(255,255,255,0.9); color: var(--ocean-deep); }
+  .tag-pod { background: rgba(168,213,226,0.9); color: var(--ocean-deep); }
+
+  /* ── Dashboard Footer ── */
+  .dash-footer {
+    text-align: center;
+    padding: 32px 48px;
+    font-size: 12px;
+    color: var(--warm-gray);
+    border-top: 1px solid #E8E2DA;
+    max-width: 1200px;
+    margin: 20px auto 0;
+  }
+
+  .dash-footer span { color: var(--ocean); font-weight: 600; }
+
+  /* ═══════════════════════════════
+     DOCUMENT VIEWER
+     ═══════════════════════════════ */
+  #viewer {
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 500;
+  }
+
+  .viewer-bar {
+    height: 56px;
+    background: var(--ocean-deep);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 10;
+    position: relative;
+  }
+
+  .viewer-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .back-btn:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .viewer-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .viewer-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .viewer-bar-right .sm-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .viewer-iframe {
+    width: 100%;
+    height: calc(100vh - 56px);
+    border: none;
+  }
+
+  /* ═══════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════ */
+  @media (max-width: 960px) {
+    .hero-card { flex-direction: column; }
+    .hero-card-visual { flex: none; min-height: 200px; }
+    .hero-card-text { padding: 28px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .dash-header, .dash-content { padding-left: 24px; padding-right: 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .dash-topbar { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .hero-card-text h2 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ LOGIN ═══════════════════════════ -->
+<div id="loginScreen">
+  <div class="login-bg">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <div class="login-container">
+    <div class="login-logo">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <circle cx="36" cy="36" r="36" fill="rgba(255,255,255,0.08)"/>
+        <circle cx="36" cy="32" r="16" fill="#D4A843" opacity="0.9"/>
+        <circle cx="36" cy="32" r="12" fill="#F0D68A" opacity="0.6"/>
+        <circle cx="36" cy="32" r="7" fill="#FFF8E1" opacity="0.8"/>
+        <line x1="36" y1="10" x2="36" y2="4" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+        <line x1="52" y1="16" x2="56" y2="12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+        <line x1="56" y1="32" x2="62" y2="32" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+        <line x1="20" y1="16" x2="16" y2="12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+        <line x1="16" y1="32" x2="10" y2="32" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+        <path d="M16 50 C22 47, 28 53, 36 50 C44 47, 50 53, 56 50" stroke="rgba(168,213,226,0.6)" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M12 56 C20 53, 26 59, 36 56 C46 53, 52 59, 60 56" stroke="rgba(168,213,226,0.4)" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M18 62 C24 59, 30 65, 36 62 C42 59, 48 65, 54 62" stroke="rgba(168,213,226,0.25)" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <h1>Sun Mist</h1>
+      <div class="tagline">Company Hub</div>
+    </div>
+
+    <div class="login-card">
+      <h2>Admin Access</h2>
+      <p class="subtitle">Enter the password to continue</p>
+
+      <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
+
+      <form onsubmit="return handleLogin(event)">
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="passwordInput" placeholder="Enter admin password" autofocus />
+        </div>
+        <button type="submit" class="login-btn" id="loginBtn">Enter</button>
+      </form>
+
+      <div class="login-footer">Sun Mist Co. &mdash; Internal Access Only</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ DASHBOARD ═══════════════════════════ -->
+<div id="dashboard">
+
+  <div class="dash-header">
+    <div class="dash-topbar">
+      <div class="dash-logo">
+        <svg width="36" height="36" viewBox="0 0 72 72" fill="none">
+          <circle cx="36" cy="32" r="16" fill="#D4A843" opacity="0.9"/>
+          <circle cx="36" cy="32" r="10" fill="#F0D68A" opacity="0.6"/>
+          <line x1="36" y1="10" x2="36" y2="5" stroke="#D4A843" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+          <line x1="52" y1="16" x2="56" y2="12" stroke="#D4A843" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+          <line x1="56" y1="32" x2="61" y2="32" stroke="#D4A843" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+          <line x1="20" y1="16" x2="16" y2="12" stroke="#D4A843" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+          <line x1="16" y1="32" x2="11" y2="32" stroke="#D4A843" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+          <path d="M16 50 C22 47, 28 53, 36 50 C44 47, 50 53, 56 50" stroke="#A8D5E2" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <path d="M12 58 C20 55, 28 61, 36 58 C44 55, 52 61, 60 58" stroke="#A8D5E2" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/>
+        </svg>
+        <span>Sun Mist</span>
+        <span class="badge">PILOT</span>
+      </div>
+
+      <div class="dash-user">
+        <div class="greeting">
+          Tuesday, Mar 24
+          <strong>Max McD.</strong>
+        </div>
+        <div class="avatar-circle">M</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-content">
+
+    <!-- ── HERO: Product Concepts (Main Website) ── -->
+    <div class="hero-card" onclick="openDoc('product-concepts.html', 'Product Concepts: Pod + Mobile')">
+      <div class="hero-card-visual">
+        <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+          <!-- Pod illustration -->
+          <rect x="42" y="28" width="56" height="84" rx="28" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+          <rect x="50" y="36" width="40" height="68" rx="20" fill="rgba(255,255,255,0.08)"/>
+          <!-- Screen -->
+          <rect x="60" y="46" width="20" height="14" rx="4" fill="rgba(240,214,138,0.5)" stroke="rgba(240,214,138,0.7)" stroke-width="1"/>
+          <!-- Nozzle dots -->
+          <circle cx="54" cy="72" r="2" fill="rgba(168,213,226,0.7)"/>
+          <circle cx="86" cy="72" r="2" fill="rgba(168,213,226,0.7)"/>
+          <circle cx="54" cy="80" r="2" fill="rgba(168,213,226,0.7)"/>
+          <circle cx="86" cy="80" r="2" fill="rgba(168,213,226,0.7)"/>
+          <!-- Person silhouette -->
+          <circle cx="70" cy="66" r="5" fill="rgba(255,255,255,0.4)"/>
+          <rect x="66" y="72" width="8" height="16" rx="4" fill="rgba(255,255,255,0.3)"/>
+          <!-- Solar panel -->
+          <rect x="52" y="22" width="36" height="6" rx="3" fill="rgba(240,214,138,0.4)" stroke="rgba(240,214,138,0.6)" stroke-width="1"/>
+          <!-- Mist spray -->
+          <circle cx="54" cy="76" r="6" fill="rgba(168,213,226,0.15)"/>
+          <circle cx="86" cy="76" r="6" fill="rgba(168,213,226,0.15)"/>
+          <!-- Sun -->
+          <circle cx="110" cy="24" r="12" fill="rgba(212,168,67,0.3)"/>
+          <circle cx="110" cy="24" r="7" fill="rgba(240,214,138,0.5)"/>
+        </svg>
+      </div>
+
+      <div class="hero-card-text">
+        <div class="card-label"><span class="pulse"></span> Featured Concept</div>
+        <h2>Product Concepts: Pod + Mobile</h2>
+        <p>The full Sun Mist vision — self-service SPF misting pods that double as beach rinse showers, alongside the mobile operator service. Illustrated concepts, placement strategy, business model, and family-first design.</p>
+        <span class="open-link">
+          Open project
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#2B6E8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- ── PROJECT DOCUMENTS ── -->
+    <div class="section-label">Project Documents</div>
+
+    <div class="card-grid">
+
+      <!-- Brand Identity -->
+      <div class="nav-card" onclick="openDoc('brand-identity.html', 'Brand Identity System')">
+        <div class="card-visual">
+          <div class="card-visual-inner vis-brand">
+            <div class="card-icon-box">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+            </div>
+          </div>
+          <span class="card-tag tag-brand">Brand</span>
+        </div>
+        <div class="card-info">
+          <h3>Brand Identity System</h3>
+          <p>Logo, color palette, typography, iconography, illustrations, patterns, and application guidelines.</p>
+          <div class="card-footer">
+            <span class="meta">88 KB</span>
+            <span class="arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#2B6E8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- UX Case Study -->
+      <div class="nav-card" onclick="openDoc('ux-case-study.html', 'UX Case Study')">
+        <div class="card-visual">
+          <div class="card-visual-inner vis-ux">
+            <div class="card-icon-box">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+          </div>
+          <span class="card-tag tag-ux">UX Research</span>
+        </div>
+        <div class="card-info">
+          <h3>UX Case Study</h3>
+          <p>5 personas, user journeys, service blueprint, competitive analysis, case studies, and impact metrics.</p>
+          <div class="card-footer">
+            <span class="meta">116 KB</span>
+            <span class="arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#2B6E8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Pitch -->
+      <div class="nav-card" onclick="openDoc('business-pitch.html', 'Business Pitch & Strategy')">
+        <div class="card-visual">
+          <div class="card-visual-inner vis-pitch">
+            <div class="card-icon-box">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+            </div>
+          </div>
+          <span class="card-tag tag-pitch">Business</span>
+        </div>
+        <div class="card-info">
+          <h3>Business Pitch & Strategy</h3>
+          <p>Market analysis, unit economics, 3-year financials, go-to-market roadmap, and implementation plan.</p>
+          <div class="card-footer">
+            <span class="meta">79 KB</span>
+            <span class="arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#2B6E8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- One-Pager -->
+      <div class="nav-card" onclick="openDoc('one-pager.html', 'Service One-Pager')">
+        <div class="card-visual">
+          <div class="card-visual-inner vis-onepager">
+            <div class="card-icon-box" style="background: rgba(26,74,94,0.12);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1A4A5E" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+          </div>
+          <span class="card-tag tag-overview">Overview</span>
+        </div>
+        <div class="card-info">
+          <h3>Service One-Pager</h3>
+          <p>Concise overview of the service, experience, benefits, operator model, and pilot proposal.</p>
+          <div class="card-footer">
+            <span class="meta">33 KB</span>
+            <span class="arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#2B6E8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dash-footer">
+      &copy; 2026 <span>Sun Mist Co.</span> &mdash; Mist. Move. Enjoy. &mdash; Ocean City, MD
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ DOCUMENT VIEWER ═══════════════════════════ -->
+<div id="viewer">
+  <div class="viewer-bar">
+    <div class="viewer-bar-left">
+      <button class="back-btn" onclick="closeDoc()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Dashboard
+      </button>
+      <span class="viewer-title" id="viewerTitle"></span>
+    </div>
+    <div class="viewer-bar-right">
+      <span class="sm-logo">Sun Mist</span>
+    </div>
+  </div>
+  <iframe class="viewer-iframe" id="viewerFrame" sandbox="allow-same-origin allow-scripts"></iframe>
+</div>
+
+<script>
+  // ── LOGIN ──
+  function handleLogin(e) {
+    e.preventDefault();
+    var pw = document.getElementById('passwordInput').value;
+    var err = document.getElementById('loginError');
+    var btn = document.getElementById('loginBtn');
+
+    if (pw.toLowerCase() !== 'artemis') {
+      err.classList.add('show');
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
+      return false;
+    }
+
+    err.classList.remove('show');
+    btn.textContent = 'Signing in...';
+    btn.style.opacity = '0.7';
+    btn.style.pointerEvents = 'none';
+
+    setTimeout(function() {
+      document.getElementById('loginScreen').classList.add('hidden');
+      document.getElementById('dashboard').classList.add('active');
+    }, 600);
+    return false;
+  }
+
+  // ── OPEN A DOCUMENT ──
+  function openDoc(file, title) {
+    document.getElementById('viewerTitle').textContent = title;
+    document.getElementById('viewerFrame').src = file;
+    document.getElementById('dashboard').classList.remove('active');
+    document.getElementById('viewer').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── BACK TO DASHBOARD ──
+  function closeDoc() {
+    document.getElementById('viewer').classList.remove('active');
+    document.getElementById('viewerFrame').src = '';
+    document.getElementById('dashboard').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── KEYBOARD: Escape to go back ──
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('viewer').classList.contains('active')) {
+      closeDoc();
+    }
+  });
+</script>
+
+</body>
+</html>

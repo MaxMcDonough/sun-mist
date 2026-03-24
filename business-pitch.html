@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Mist — Beach Sunscreen Misting Service | Business Pitch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sandy-gold: #D4A843;
+            --gold-light: #F0D68A;
+            --ocean-blue: #2B6E8A;
+            --ocean-deep: #1A4A5E;
+            --coral: #E8835C;
+            --sea-glass: #A8D5E2;
+            --sand: #F5EDE3;
+            --sand-light: #FBF7F2;
+            --sky: #E8F4F8;
+            --charcoal: #2C2C2C;
+            --warm-gray: #6B6358;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ocean-deep);
+            letter-spacing: 1px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--coral);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-blue) 50%, var(--sea-glass) 100%);
+            color: white;
+            padding: 120px 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(232, 131, 92, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-number {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            opacity: 0.8;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(212, 168, 67, 0.15);
+        }
+
+        section:nth-child(odd) {
+            background-color: var(--sand-light);
+        }
+
+        section:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--ocean-deep);
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, var(--sky) 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--sea-glass);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 168, 67, 0.15);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Charts */
+        .chart-container {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 168, 67, 0.2);
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.5rem;
+            height: 300px;
+            margin-top: 2rem;
+        }
+
+        .bar-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar {
+            width: 100%;
+            background: linear-gradient(180deg, var(--coral) 0%, var(--sandy-gold) 100%);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bar:hover {
+            filter: brightness(1.1);
+        }
+
+        .bar-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-align: center;
+            width: 100%;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            color: var(--coral);
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        /* Solution Section */
+        .solution-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .solution-flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .solution-flow {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .flow-step {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--sea-glass);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .flow-step:hover {
+            border-color: var(--coral);
+            box-shadow: 0 15px 35px rgba(232, 131, 92, 0.15);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--sandy-gold) 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .flow-step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--ocean-deep);
+        }
+
+        .flow-step p {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        /* Market Opportunity */
+        .market-funnel {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .funnel-stage {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .funnel-box {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            padding: 2rem;
+            color: white;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .funnel-box:hover {
+            transform: scale(1.05);
+        }
+
+        .tam {
+            background: linear-gradient(135deg, #2B6E8A, #1A4A5E);
+            width: 100%;
+        }
+
+        .sam {
+            background: linear-gradient(135deg, var(--sea-glass), var(--ocean-blue));
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        .som {
+            background: linear-gradient(135deg, var(--coral), var(--sandy-gold));
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .funnel-label {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .funnel-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-blue));
+            color: white;
+            padding: 1.25rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(212, 168, 67, 0.15);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--sand-light);
+        }
+
+        tr:hover {
+            background-color: var(--sky);
+        }
+
+        .comparison-table {
+            font-size: 0.9rem;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--ocean-deep);
+        }
+
+        .checkmark {
+            color: var(--coral);
+            font-weight: 700;
+        }
+
+        .xmark {
+            color: #999;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--sea-glass);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .content {
+            margin-left: 0;
+            margin-right: auto;
+            width: 48%;
+        }
+
+        .timeline-item:nth-child(even) .content {
+            margin-left: auto;
+            margin-right: 0;
+            width: 48%;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item:nth-child(odd) .content,
+            .timeline-item:nth-child(even) .content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--coral);
+            border: 4px solid #ffffff;
+            border-radius: 50%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 2px var(--sea-glass);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+
+        .timeline-content {
+            background: var(--sky);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--coral);
+        }
+
+        .timeline-content h4 {
+            color: var(--ocean-deep);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-label {
+            color: var(--coral);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Org Chart */
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .org-level {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .org-level-title {
+            font-weight: 600;
+            color: var(--ocean-deep);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .org-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .org-box {
+            background: linear-gradient(135deg, var(--sky) 0%, #ffffff 100%);
+            border: 2px solid var(--sea-glass);
+            padding: 1.5rem;
+            border-radius: 8px;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .org-title {
+            font-weight: 600;
+            color: var(--ocean-deep);
+            margin-bottom: 0.25rem;
+        }
+
+        .org-detail {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+        }
+
+        /* Donut Chart */
+        .donut-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .donut-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .donut-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .donut-percentage {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--ocean-deep);
+        }
+
+        .donut-text {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        /* Area Chart */
+        .area-chart-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 168, 67, 0.2);
+        }
+
+        .area-chart {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        .area-chart-line {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Buttons & CTAs */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--coral), var(--sandy-gold));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(232, 131, 92, 0.3);
+        }
+
+        /* Closing Section */
+        .closing {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .closing h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--ocean-deep);
+        }
+
+        .closing p {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .contact-label {
+            color: var(--warm-gray);
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            font-weight: 600;
+            color: var(--ocean-deep);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--coral);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            nav .nav-links {
+                gap: 1rem;
+                font-size: 0.75rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .market-funnel {
+                flex-direction: column;
+            }
+
+            .tam, .sam, .som {
+                width: 100% !important;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">☀️ Sun Mist</div>
+            <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#market">Market</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#financials">Financials</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="section-number">Investor Pitch Deck</div>
+            <div class="tagline">Mist. Move. Enjoy.</div>
+            <h1>Sun Mist</h1>
+            <p class="subtitle">The first mobile sunscreen-as-a-service for America's beaches</p>
+            <div class="meta">
+                <div class="meta-item">
+                    <span class="meta-label">Founded</span>
+                    <span class="meta-value">2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Pilot Location</span>
+                    <span class="meta-value">Ocean City, MD</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Business Model</span>
+                    <span class="meta-value">Service-on-Demand</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>The Problem</h2>
+                <p>Sunburn remains a widespread public health challenge despite readily available sunscreen products</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-label">Sunburns treated annually in the US</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$8.1B</div>
+                    <div class="stat-label">US sunscreen market size</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Of adults still get sunburned yearly</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Compliance drop after initial application</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$3.4B</div>
+                    <div class="stat-label">Annual healthcare cost of skin cancer</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12 min</div>
+                    <div class="stat-label">Average family spends fighting sunscreen</div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h4 style="color: var(--ocean-deep); margin-bottom: 1rem;">Why People Don't Reapply Sunscreen</h4>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 85%;">
+                            <div class="bar-value">85%</div>
+                        </div>
+                        <div class="bar-label">Inconvenience</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height: 62%;">
+                            <div class="bar-value">62%</div>
+                        </div>
+                        <div class="bar-label">Sticky/Messy</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height: 48%;">
+                            <div class="bar-value">48%</div>
+                        </div>
+                        <div class="bar-label">Forget/Don't Notice Time</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height: 35%;">
+                            <div class="bar-value">35%</div>
+                        </div>
+                        <div class="bar-label">Don't Have Sunscreen</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: var(--warm-gray); font-style: italic;">
+                Current solutions fail because they require friction, planning, and sustained user behavior — exactly what beach-goers avoid.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>The Solution</h2>
+                <p>Mobile sunscreen misting—professional, convenient, and re-applied on-demand throughout the day</p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, var(--sky) 0%, #ffffff 100%); padding: 3rem; border-radius: 12px; margin-bottom: 3rem; border: 1px solid var(--sea-glass);">
+                <h3 style="color: var(--ocean-deep); text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">How It Works</h3>
+                <div class="solution-flow">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <h4>Spot Us</h4>
+                        <p>Find a Sun Mist operator on the beach or request via app</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <h4>Select SPF</h4>
+                        <p>Choose SPF 30, SPF 50, or full body coverage option</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <h4>Get Misted</h4>
+                        <p>Professional application, 60 seconds, zero mess</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <h4>Enjoy</h4>
+                        <p>Go back to fun. Reapply whenever you need.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass);">
+                    <h4 style="color: var(--coral); margin-bottom: 1rem; font-size: 1.2rem;">💡 Key Advantages</h4>
+                    <ul style="list-style: none; gap: 1rem; display: flex; flex-direction: column;">
+                        <li>✓ Zero friction — misting takes 60 seconds</li>
+                        <li>✓ Professional application — 360° coverage</li>
+                        <li>✓ No sticky residue — quick-dry premium formula</li>
+                        <li>✓ Instant reapplication — no waiting or planning</li>
+                        <li>✓ Premium formula — dermatologist-recommended</li>
+                        <li>✓ Reduces skin cancer risk — proven compliance increase</li>
+                    </ul>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass);">
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 1rem; font-size: 1.2rem;">🎯 Differentiation</h4>
+                    <ul style="list-style: none; gap: 1rem; display: flex; flex-direction: column;">
+                        <li><strong>vs. DIY Sunscreen:</strong> Professional + convenient</li>
+                        <li><strong>vs. Spray Booths:</strong> Mobile + personalized service</li>
+                        <li><strong>vs. Beach Vendors:</strong> Specialized + high-quality</li>
+                        <li><strong>vs. Sunscreen Sticks:</strong> Fast + complete coverage</li>
+                        <li><strong>Network Effect:</strong> More operators = ubiquitous service</li>
+                        <li><strong>Brand Loyalty:</strong> Premium experience builds repeat use</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section id="market">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Market Opportunity</h2>
+                <p>Massive TAM across beaches, pools, festivals, and outdoor events</p>
+            </div>
+
+            <div style="background: white; padding: 3rem; border-radius: 12px; border: 1px solid var(--sea-glass); margin-bottom: 3rem;">
+                <h4 style="color: var(--ocean-deep); text-align: center; margin-bottom: 2rem;">Market Sizing: TAM → SAM → SOM</h4>
+                <div class="market-funnel">
+                    <div class="funnel-stage">
+                        <div class="funnel-box tam">
+                            <div class="funnel-label">TAM (Total Addressable Market)</div>
+                            <div class="funnel-value">2.2B</div>
+                            <div>US Beach Visits/Year</div>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.95;">$180B Beach Tourism Economy</div>
+                        </div>
+                    </div>
+                    <div class="funnel-stage">
+                        <div class="funnel-box sam">
+                            <div class="funnel-label">SAM (Serviceable Addressable Market)</div>
+                            <div class="funnel-value">45M</div>
+                            <div>Mid-Atlantic High-Traffic Beaches</div>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.95;">Annual Visitors</div>
+                        </div>
+                    </div>
+                    <div class="funnel-stage">
+                        <div class="funnel-box som">
+                            <div class="funnel-label">SOM (Serviceable Obtainable Market)</div>
+                            <div class="funnel-value">8M</div>
+                            <div>Ocean City MD Beachgoers</div>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.95;">Year 1 Target Location</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--sky); padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--coral);">
+                <h4 style="color: var(--ocean-deep); margin-bottom: 1.5rem;">🌊 Adjacent Markets & Growth Opportunities</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                    <div>
+                        <strong style="color: var(--coral);">Swimming Pools</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--warm-gray);">7,000+ public pools + resort pools nationally</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--coral);">Water Parks</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--warm-gray);">1,000+ parks, 400M+ annual visitors</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--coral);">Outdoor Festivals</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--warm-gray);">1M+ events nationwide, captive audiences</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--coral);">Sports Events</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--warm-gray);">Golf, tennis, marathons, outdoor sports</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--coral);">Resorts & Hotels</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--warm-gray);">Premium amenity, guest satisfaction boost</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--coral);">Cruise Ships</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--warm-gray);">Onboard spa & wellness services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section id="business">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Business Model & Unit Economics</h2>
+                <p>Highly profitable, scalable unit economics with multiple revenue streams</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass); text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem;">Standard Mist</div>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$5</div>
+                    <div style="font-size: 0.9rem; color: var(--warm-gray);">SPF 30 touch-up</div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass); text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem;">Premium Mist</div>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$7</div>
+                    <div style="font-size: 0.9rem; color: var(--warm-gray);">SPF 50 protection</div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass); text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem;">Full Body</div>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$10</div>
+                    <div style="font-size: 0.9rem; color: var(--warm-gray);">Complete coverage</div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass); text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem;">Family Pack</div>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$22</div>
+                    <div style="font-size: 0.9rem; color: var(--warm-gray);">4 applications</div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass); text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem;">Day Pass</div>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$15</div>
+                    <div style="font-size: 0.9rem; color: var(--warm-gray);">Unlimited reapplication</div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--ocean-deep); margin: 2rem 0 1.5rem 0; font-size: 1.3rem;">Unit Economics: Per Operator Per Day</h4>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Average applications/day</td>
+                        <td><strong>85</strong></td>
+                        <td>Based on 8-hour shift, summer peak traffic</td>
+                    </tr>
+                    <tr>
+                        <td>Average revenue per application</td>
+                        <td><strong>$7.50</strong></td>
+                        <td>Mix of $5, $7, $10 services + day passes</td>
+                    </tr>
+                    <tr>
+                        <td>Daily gross revenue</td>
+                        <td><strong>$637.50</strong></td>
+                        <td>85 applications × $7.50</td>
+                    </tr>
+                    <tr>
+                        <td>Daily COGS (sunscreen, supplies)</td>
+                        <td><strong>~$45</strong></td>
+                        <td>~7% of revenue</td>
+                    </tr>
+                    <tr>
+                        <td>Operator wage (8 hr @ $18/hr)</td>
+                        <td><strong>$144</strong></td>
+                        <td>Competitive beach service rates</td>
+                    </tr>
+                    <tr>
+                        <td>Daily gross profit per operator</td>
+                        <td><strong>~$448.50</strong></td>
+                        <td>Before fixed overhead</td>
+                    </tr>
+                    <tr style="background: var(--sky); font-weight: 700;">
+                        <td>Gross margin</td>
+                        <td><strong>~70%</strong></td>
+                        <td>Highly attractive unit economics</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--ocean-deep); margin: 3rem 0 1.5rem 0; font-size: 1.3rem;">3-Year Revenue Projection (Seasonal Model: 150 days/year)</h4>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Operators</th>
+                        <th>Locations</th>
+                        <th>Annual Revenue</th>
+                        <th>Gross Profit</th>
+                        <th>Key Milestones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Year 1 (2026)</strong></td>
+                        <td>2</td>
+                        <td>1 (Ocean City)</td>
+                        <td>~$134K</td>
+                        <td>~$85K</td>
+                        <td>Pilot phase, product-market fit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 2 (2027)</strong></td>
+                        <td>8</td>
+                        <td>3 (Mid-Atlantic)</td>
+                        <td>~$535K</td>
+                        <td>~$320K</td>
+                        <td>Expand, launch app, partnerships</td>
+                    </tr>
+                    <tr style="background: linear-gradient(135deg, var(--sky) 0%, #ffffff 100%); font-weight: 700;">
+                        <td><strong>Year 3 (2028)</strong></td>
+                        <td>20</td>
+                        <td>5 (Regional)</td>
+                        <td>~$1.34M</td>
+                        <td>~$800K</td>
+                        <td>Begin franchise, national visibility</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Competitive Landscape -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Competitive Landscape</h2>
+                <p>Sun Mist uniquely combines convenience, quality, and mobility in an underserved market</p>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th style="background: linear-gradient(135deg, var(--coral), var(--sandy-gold));">Sun Mist</th>
+                            <th>Personal Sunscreen</th>
+                            <th>Spray Booths</th>
+                            <th>Beach Vendors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Convenience</strong></td>
+                            <td><span class="checkmark">★★★★★</span></td>
+                            <td>★★☆☆☆</td>
+                            <td>★★★☆☆</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coverage Quality</strong></td>
+                            <td><span class="checkmark">★★★★★</span></td>
+                            <td>★★★☆☆</td>
+                            <td>★★★★☆</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Application Speed</strong></td>
+                            <td><span class="checkmark">★★★★★</span></td>
+                            <td>★★☆☆☆</td>
+                            <td>★★★☆☆</td>
+                            <td>★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost Per Use</strong></td>
+                            <td><span class="checkmark">★★★★☆</span></td>
+                            <td>★★★★☆</td>
+                            <td>★★☆☆☆</td>
+                            <td>★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Environmental Impact</strong></td>
+                            <td><span class="checkmark">★★★★★</span></td>
+                            <td>★☆☆☆☆</td>
+                            <td>★★☆☆☆</td>
+                            <td>★★☆☆☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>User Experience</strong></td>
+                            <td><span class="checkmark">★★★★★</span></td>
+                            <td>★★★☆☆</td>
+                            <td>★★★★☆</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobility/Availability</strong></td>
+                            <td><span class="checkmark">★★★★★</span></td>
+                            <td>★★★★☆</td>
+                            <td>★★☆☆☆</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reapplication Ease</strong></td>
+                            <td><span class="checkmark">★★★★★</span></td>
+                            <td>★★☆☆☆</td>
+                            <td>★★★☆☆</td>
+                            <td>★★★☆☆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="background: var(--sky); padding: 2rem; border-radius: 12px; margin-top: 2rem; border-left: 4px solid var(--ocean-blue);">
+                <h4 style="color: var(--ocean-deep); margin-bottom: 1rem;">🏆 Competitive Advantages</h4>
+                <ul style="list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                    <li>✓ <strong>First-mover</strong> in beach sunscreen service category</li>
+                    <li>✓ <strong>Mobile model</strong> vs. fixed-location booths</li>
+                    <li>✓ <strong>Premium formula</strong> vs. commodity sprays</li>
+                    <li>✓ <strong>Professional service</strong> vs. DIY compliance</li>
+                    <li>✓ <strong>Low operational friction</strong> vs. complicated logistics</li>
+                    <li>✓ <strong>Network effects</strong> with operator density & brand awareness</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Go-to-Market -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Go-to-Market Strategy & Timeline</h2>
+                <p>Three-phase expansion from pilot to regional scale</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="content">
+                        <div class="timeline-content">
+                            <div class="timeline-label">Phase 1 — May to September 2026</div>
+                            <h4>Pilot & Proof of Concept</h4>
+                            <p><strong>Location:</strong> Ocean City, MD (primary beach attraction, 8M+ annual visitors)</p>
+                            <p style="margin-top: 0.75rem;"><strong>Tactics:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Deploy 2 operators during peak season (summer weekends + school vacations)</li>
+                                <li>Local PR & influencer seeding (beach lifestyle content)</li>
+                                <li>Hotel & rental partnerships for customer referrals</li>
+                                <li>Beach festival activation & sponsorships</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Success Metrics:</strong> 5,000+ applications, 500+ unique customers, 20%+ repeat rate, positive press</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="content">
+                        <div class="timeline-content">
+                            <div class="timeline-label">Phase 2 — 2027</div>
+                            <h4>Regional Expansion & Product Launch</h4>
+                            <p><strong>Locations:</strong> Expand to Rehoboth Beach & Dewey Beach (2 new beaches)</p>
+                            <p style="margin-top: 0.75rem;"><strong>Tactics:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Scale to 8 operators across 3 beaches</li>
+                                <li>Launch mobile app (QR loyalty, scheduling, day passes)</li>
+                                <li>Introduce family packs, day passes, loyalty rewards</li>
+                                <li>Hotel partnerships (premium resort packages)</li>
+                                <li>Paid social media (Instagram, TikTok targeting beach-goers)</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Success Metrics:</strong> 50,000+ applications, $535K revenue, 25%+ repeat customer rate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="content">
+                        <div class="timeline-content">
+                            <div class="timeline-label">Phase 3 — 2028+</div>
+                            <h4>Scale & Franchise Model</h4>
+                            <p><strong>Locations:</strong> NJ Shore, Virginia Beach, Outer Banks (5+ locations)</p>
+                            <p style="margin-top: 0.75rem;"><strong>Tactics:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Operator licensing / franchise model for rapid scaling</li>
+                                <li>20+ operators across 5 premium beach markets</li>
+                                <li>Add adjacent products: after-sun care, cooling mist, insect repellent</li>
+                                <li>Corporate partnerships (cruise lines, resort chains, water parks)</li>
+                                <li>National brand campaigns & sponsorships</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Success Metrics:</strong> 150,000+ applications, $1.34M revenue, path to 7-figure profitability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2>Implementation Strategy</h2>
+                <p>Detailed operational blueprint for launch and scaling</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass);">
+                    <h4 style="color: var(--coral); margin-bottom: 1rem;">⚙️ Equipment & Supplies</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li><strong>Misting System:</strong> 4L capacity backpack + fine-mist nozzle (~$300)</li>
+                        <li><strong>Sunscreen:</strong> FDA-compliant commercial formula, 200+ oz/day supply</li>
+                        <li><strong>Payment Terminal:</strong> Square/Stripe reader (~$50)</li>
+                        <li><strong>Uniform Kit:</strong> branded shirt, apron, accessories (~$150/operator)</li>
+                        <li><strong>Initial inventory:</strong> ~$1,200 startup cost per operator</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass);">
+                    <h4 style="color: var(--coral); margin-bottom: 1rem;">👥 Hiring & Training</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li><strong>Recruitment:</strong> University partnerships, seasonal job boards</li>
+                        <li><strong>Training Program:</strong> 2-day onboarding covering:</li>
+                        <li style="margin-left: 1rem;">— Application technique & coverage</li>
+                        <li style="margin-left: 1rem;">— Customer service scripts</li>
+                        <li style="margin-left: 1rem;">— Safety & liability protocols</li>
+                        <li style="margin-left: 1rem;">— Payment processing</li>
+                        <li><strong>Quality Control:</strong> Weekly mystery shoppers + feedback</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass);">
+                    <h4 style="color: var(--coral); margin-bottom: 1rem;">📋 Daily Operations</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li><strong>Pre-shift:</strong> Equipment check, supply loading, zone briefing</li>
+                        <li><strong>Coverage:</strong> Assigned beach zones with rotation schedule</li>
+                        <li><strong>Inventory:</strong> Daily tracking, restock protocols</li>
+                        <li><strong>Weather:</strong> Contingency plans for rain, extreme heat</li>
+                        <li><strong>Reporting:</strong> End-of-day numbers, customer feedback logged</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--sea-glass);">
+                    <h4 style="color: var(--coral); margin-bottom: 1rem;">⚖️ Regulatory & Compliance</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li><strong>FDA:</strong> Using pre-approved commercial sunscreen, not manufacturing</li>
+                        <li><strong>Licensing:</strong> Business license, beach vendor permit</li>
+                        <li><strong>Insurance:</strong> General liability + product liability coverage</li>
+                        <li><strong>Health Dept:</strong> Compliance with local beach regulations</li>
+                        <li><strong>Legal:</strong> Terms of service, liability waiver templates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <h2>Team Structure</h2>
+                <p>Lean core team with seasonal operator workforce</p>
+            </div>
+
+            <h4 style="color: var(--ocean-deep); margin-bottom: 2rem; font-size: 1.2rem;">Year 1 Organization</h4>
+            <div class="org-chart">
+                <div class="org-level">
+                    <div class="org-boxes">
+                        <div class="org-box">
+                            <div class="org-title">Founder / CEO</div>
+                            <div class="org-detail">Operations & Strategy</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="width: 2px; height: 40px; background: var(--sea-glass); margin: 0 auto;"></div>
+                </div>
+                <div class="org-level">
+                    <div class="org-boxes">
+                        <div class="org-box">
+                            <div class="org-title">Beach Operator #1</div>
+                            <div class="org-detail">Ocean City</div>
+                        </div>
+                        <div class="org-box">
+                            <div class="org-title">Beach Operator #2</div>
+                            <div class="org-detail">Ocean City</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--ocean-deep); margin: 3rem 0 2rem 0; font-size: 1.2rem;">Year 3 Organization</h4>
+            <div class="org-chart">
+                <div class="org-level">
+                    <div class="org-boxes">
+                        <div class="org-box">
+                            <div class="org-title">CEO</div>
+                            <div class="org-detail">Vision & Growth</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="width: 2px; height: 40px; background: var(--sea-glass); margin: 0 auto;"></div>
+                </div>
+                <div class="org-level">
+                    <div class="org-boxes">
+                        <div class="org-box">
+                            <div class="org-title">Operations Manager</div>
+                            <div class="org-detail">Multi-site coordination</div>
+                        </div>
+                        <div class="org-box">
+                            <div class="org-title">Marketing Lead</div>
+                            <div class="org-detail">Brand & growth</div>
+                        </div>
+                        <div class="org-box">
+                            <div class="org-title">Regional Manager</div>
+                            <div class="org-detail">Franchise support</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="width: 2px; height: 40px; background: var(--sea-glass); margin: 0 auto;"></div>
+                </div>
+                <div class="org-level">
+                    <div class="org-boxes">
+                        <div class="org-box">
+                            <div class="org-title">20 Beach Operators</div>
+                            <div class="org-detail">5 locations</div>
+                        </div>
+                        <div class="org-box">
+                            <div class="org-title">3 Team Leads</div>
+                            <div class="org-detail">Site supervisors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financials -->
+    <section id="financials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">09</span>
+                <h2>Financial Projections</h2>
+                <p>Conservative 3-year P&L with clear path to profitability</p>
+            </div>
+
+            <h4 style="color: var(--ocean-deep); margin-bottom: 1.5rem;">3-Year P&L Summary (All figures in USD)</h4>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Line Item</th>
+                        <th>Year 1</th>
+                        <th>Year 2</th>
+                        <th>Year 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Revenue</strong></td>
+                        <td><strong>$134,325</strong></td>
+                        <td><strong>$535,300</strong></td>
+                        <td><strong>$1,343,250</strong></td>
+                    </tr>
+                    <tr>
+                        <td>COGS (Sunscreen, supplies)</td>
+                        <td>$10,750</td>
+                        <td>$42,100</td>
+                        <td>$105,400</td>
+                    </tr>
+                    <tr style="background: var(--sky);">
+                        <td><strong>Gross Profit</strong></td>
+                        <td><strong>$123,575</strong></td>
+                        <td><strong>$493,200</strong></td>
+                        <td><strong>$1,237,850</strong></td>
+                    </tr>
+                    <tr style="background: var(--sky);">
+                        <td><strong>Gross Margin %</strong></td>
+                        <td><strong>92%</strong></td>
+                        <td><strong>92%</strong></td>
+                        <td><strong>92%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Operating Expenses:</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2rem;">Operator wages (2/8/20)</td>
+                        <td>$43,200</td>
+                        <td>$172,800</td>
+                        <td>$432,000</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2rem;">Marketing & PR</td>
+                        <td>$15,000</td>
+                        <td>$35,000</td>
+                        <td>$75,000</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2rem;">Equipment & maintenance</td>
+                        <td>$8,000</td>
+                        <td>$20,000</td>
+                        <td>$45,000</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2rem;">Insurance & permits</td>
+                        <td>$6,000</td>
+                        <td>$12,000</td>
+                        <td>$25,000</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2rem;">Admin & legal</td>
+                        <td>$8,000</td>
+                        <td>$12,000</td>
+                        <td>$20,000</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2rem;">Travel & logistics</td>
+                        <td>$5,000</td>
+                        <td>$15,000</td>
+                        <td>$35,000</td>
+                    </tr>
+                    <tr style="background: #f0f0f0; border-top: 2px solid var(--sea-glass);">
+                        <td><strong>Total Operating Expenses</strong></td>
+                        <td><strong>$85,200</strong></td>
+                        <td><strong>$266,800</strong></td>
+                        <td><strong>$632,000</strong></td>
+                    </tr>
+                    <tr style="background: linear-gradient(135deg, var(--gold-light) 0%, var(--sandy-gold) 100%); font-weight: 700; border-top: 2px solid var(--coral);">
+                        <td><strong>EBITDA</strong></td>
+                        <td><strong>$38,375</strong></td>
+                        <td><strong>$226,400</strong></td>
+                        <td><strong>$605,850</strong></td>
+                    </tr>
+                    <tr style="background: linear-gradient(135deg, var(--gold-light) 0%, var(--sandy-gold) 100%); font-weight: 700;">
+                        <td><strong>EBITDA Margin %</strong></td>
+                        <td><strong>29%</strong></td>
+                        <td><strong>42%</strong></td>
+                        <td><strong>45%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="area-chart-container">
+                <h4 style="color: var(--ocean-deep); margin-bottom: 1.5rem;">Revenue Growth Projection</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div style="background: linear-gradient(135deg, #ffffff 0%, var(--sky) 100%); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--sea-glass);">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$134K</div>
+                        <div style="font-size: 0.9rem; color: var(--warm-gray);">Year 1 Revenue</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ffffff 0%, var(--sky) 100%); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--sea-glass);">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$535K</div>
+                        <div style="font-size: 0.9rem; color: var(--warm-gray);">Year 2 Revenue</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ffffff 0%, var(--sky) 100%); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--sea-glass);">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--coral); margin-bottom: 0.5rem;">$1.34M</div>
+                        <div style="font-size: 0.9rem; color: var(--warm-gray);">Year 3 Revenue</div>
+                    </div>
+                </div>
+                <svg viewBox="0 0 600 200" style="width: 100%; height: 250px;">
+                    <!-- Grid lines -->
+                    <line x1="50" y1="150" x2="580" y2="150" stroke="#ddd" stroke-width="1"/>
+                    <line x1="50" y1="100" x2="580" y2="100" stroke="#ddd" stroke-width="1"/>
+                    <line x1="50" y1="50" x2="580" y2="50" stroke="#ddd" stroke-width="1"/>
+                    
+                    <!-- Area fill -->
+                    <defs>
+                        <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#E8835C;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#E8835C;stop-opacity:0.05" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Revenue line -->
+                    <polyline points="50,145 215,120 380,55 580,25" fill="none" stroke="#E8835C" stroke-width="3"/>
+                    
+                    <!-- Area under line -->
+                    <polygon points="50,145 215,120 380,55 580,25 580,180 50,180" fill="url(#areaGradient)"/>
+                    
+                    <!-- Data points -->
+                    <circle cx="50" cy="145" r="5" fill="#E8835C"/>
+                    <circle cx="215" cy="120" r="5" fill="#E8835C"/>
+                    <circle cx="380" cy="55" r="5" fill="#E8835C"/>
+                    <circle cx="580" cy="25" r="5" fill="#E8835C"/>
+                    
+                    <!-- Labels -->
+                    <text x="50" y="175" text-anchor="middle" font-size="12" fill="#6B6358">Year 1</text>
+                    <text x="215" y="175" text-anchor="middle" font-size="12" fill="#6B6358">Year 2</text>
+                    <text x="380" y="175" text-anchor="middle" font-size="12" fill="#6B6358">Year 3</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">10</span>
+                <h2>Funding Ask & Use of Funds</h2>
+                <p>$75,000 seed round to accelerate pilot and market entry</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 2rem;">Use of Funds Breakdown</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid rgba(212, 168, 67, 0.2);">
+                            <div>
+                                <div style="font-weight: 600; color: var(--ocean-deep);">Equipment & Inventory</div>
+                                <div style="font-size: 0.9rem; color: var(--warm-gray);">Misting systems, sunscreen supply, uniforms</div>
+                            </div>
+                            <div style="font-size: 1.3rem; font-weight: 700; color: var(--coral);">$22,500</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid rgba(212, 168, 67, 0.2);">
+                            <div>
+                                <div style="font-weight: 600; color: var(--ocean-deep);">Marketing & Launch</div>
+                                <div style="font-size: 0.9rem; color: var(--warm-gray);">Social media, PR, local partnerships, launch event</div>
+                            </div>
+                            <div style="font-size: 1.3rem; font-weight: 700; color: var(--coral);">$18,750</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid rgba(212, 168, 67, 0.2);">
+                            <div>
+                                <div style="font-weight: 600; color: var(--ocean-deep);">Operations & Salaries</div>
+                                <div style="font-size: 0.9rem; color: var(--warm-gray);">Operator wages, training, equipment maintenance</div>
+                            </div>
+                            <div style="font-size: 1.3rem; font-weight: 700; color: var(--coral);">$15,000</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid rgba(212, 168, 67, 0.2);">
+                            <div>
+                                <div style="font-weight: 600; color: var(--ocean-deep);">Working Capital Reserve</div>
+                                <div style="font-size: 0.9rem; color: var(--warm-gray);">Cash flow buffer, contingencies</div>
+                            </div>
+                            <div style="font-size: 1.3rem; font-weight: 700; color: var(--coral);">$11,250</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem;">
+                            <div>
+                                <div style="font-weight: 600; color: var(--ocean-deep);">Legal & Insurance</div>
+                                <div style="font-size: 0.9rem; color: var(--warm-gray);">Permits, insurance, legal structure</div>
+                            </div>
+                            <div style="font-size: 1.3rem; font-weight: 700; color: var(--coral);">$7,500</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div class="donut-wrapper">
+                        <svg viewBox="0 0 200 200">
+                            <!-- Equipment (30% - #E8835C) -->
+                            <path d="M 100,100 L 100,20 A 80,80 0 0,1 161.24,38.76 Z" fill="#E8835C" opacity="0.9"/>
+                            <!-- Marketing (25% - #D4A843) -->
+                            <path d="M 100,100 L 161.24,38.76 A 80,80 0 0,1 180,100 Z" fill="#D4A843" opacity="0.9"/>
+                            <!-- Operations (20% - #A8D5E2) -->
+                            <path d="M 100,100 L 180,100 A 80,80 0 0,1 138.76,161.24 Z" fill="#A8D5E2" opacity="0.9"/>
+                            <!-- Working Capital (15% - #2B6E8A) -->
+                            <path d="M 100,100 L 138.76,161.24 A 80,80 0 0,1 38.76,161.24 Z" fill="#2B6E8A" opacity="0.9"/>
+                            <!-- Legal (10% - #1A4A5E) -->
+                            <path d="M 100,100 L 38.76,161.24 A 80,80 0 0,1 100,20 Z" fill="#1A4A5E" opacity="0.9"/>
+                            
+                            <!-- Inner circle (donut effect) -->
+                            <circle cx="100" cy="100" r="50" fill="white"/>
+                            
+                            <!-- Center text -->
+                            <text x="100" y="95" text-anchor="middle" font-size="24" font-weight="700" fill="#1A4A5E">$75K</text>
+                            <text x="100" y="115" text-anchor="middle" font-size="12" fill="#6B6358">Total Seed Round</text>
+                        </svg>
+                        <div class="donut-label">
+                            <div class="donut-percentage">$75K</div>
+                            <div class="donut-text">Total Seed Round</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--sky); padding: 2rem; border-radius: 12px; margin-top: 3rem; border-left: 4px solid var(--coral);">
+                <h4 style="color: var(--ocean-deep); margin-bottom: 1rem;">📊 Projected Return on Investment</h4>
+                <p style="margin-bottom: 1rem; color: var(--warm-gray);">At Year 3 profitability ($605K EBITDA), the business represents significant upside potential:</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Payback Period</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--coral);">12-18 months</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">5x Return Path</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--coral);">Year 5 exit</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Series A Opportunity</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--coral);">$3-5M round</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Now -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">11</span>
+                <h2>Why Now?</h2>
+                <p>Perfect market convergence of demand signals and consumer behavior shifts</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--coral);">
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 1rem; font-size: 1.1rem;">🏖️ Post-COVID Outdoor Boom</h4>
+                    <p style="color: var(--warm-gray); font-size: 0.95rem;">Beach travel and outdoor recreation spending at all-time highs; consumers seeking premium experiences</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--coral);">
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 1rem; font-size: 1.1rem;">☀️ Skin Cancer Awareness</h4>
+                    <p style="color: var(--warm-gray); font-size: 0.95rem;">Melanoma rates rising; health-conscious consumers demand sun protection; media coverage increasing</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--coral);">
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 1rem; font-size: 1.1rem;">💼 Gig Economy Maturity</h4>
+                    <p style="color: var(--warm-gray); font-size: 0.95rem;">Seasonal service work normalized; payment tech enables frictionless transactions; verified operators trusted</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--coral);">
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 1rem; font-size: 1.1rem;">🌍 Sustainability Movement</h4>
+                    <p style="color: var(--warm-gray); font-size: 0.95rem;">Single-use plastic reduction trends; reef-safe formulas demanded; corporate sustainability commitments</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--coral);">
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 1rem; font-size: 1.1rem;">🚀 No Incumbent Player</h4>
+                    <p style="color: var(--warm-gray); font-size: 0.95rem;">Market gap wide open; major sunscreen brands don't operate service models; opportunity to establish category leader</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--coral);">
+                    <h4 style="color: var(--ocean-deep); margin-bottom: 1rem; font-size: 1.1rem;">📱 Mobile Technology Ready</h4>
+                    <p style="color: var(--warm-gray); font-size: 0.95rem;">App-based request systems, wireless payments, QR loyalty all proven; no tech barriers to entry</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="closing">
+        <div class="container">
+            <span class="section-number">12 — Closing</span>
+            
+            <h3>The Vision</h3>
+            <p>Sun Mist is building the category for mobile, on-demand sunscreen application — transforming how millions of Americans protect themselves at the beach. We're not just selling a service; we're reducing skin cancer risk, eliminating the friction from sun safety, and proving that convenience drives compliance.</p>
+            
+            <p style="margin-top: 2rem;">This is a **$180B market opportunity** with a team ready to execute, validated unit economics, and a clear path to scale from one pilot beach to a national network.</p>
+
+            <button class="cta-button">Get in Touch</button>
+
+            <div class="contact-info" style="margin-top: 4rem;">
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">hello@sunmist.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Location</span>
+                    <span class="contact-value">Ocean City, MD</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Website</span>
+                    <span class="contact-value">www.sunmist.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Sun Mist — The First Mobile Sunscreen-as-a-Service | Investor Pitch Deck 2026</p>
+        <p style="margin-top: 1rem; opacity: 0.7;">© 2026 Sun Mist, Inc. All rights reserved. Confidential.</p>
+    </footer>
+
+</body>
+</html>
