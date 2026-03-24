@@ -1266,22 +1266,43 @@
 
                 <div class="research-grid">
                     <div class="research-stat">
-                        <div class="stat-percentage">67%</div>
+                        <svg viewBox="0 0 120 120" width="120" height="120" style="display:block; margin: 0 auto 12px;">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#E0E0E0" stroke-width="10"/>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#E8835C" stroke-width="10" stroke-dasharray="210.5 103.2" stroke-dashoffset="78.5" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                            <text x="60" y="56" text-anchor="middle" font-size="28" font-weight="700" fill="#2C2C2C" font-family="Inter, sans-serif">67%</text>
+                            <text x="60" y="72" text-anchor="middle" font-size="10" fill="#6B6358" font-family="Inter, sans-serif">n = 412</text>
+                        </svg>
                         <div class="stat-description">Forget or skip sunscreen reapplication</div>
                     </div>
                     <div class="research-stat">
-                        <div class="stat-percentage">82%</div>
+                        <svg viewBox="0 0 120 120" width="120" height="120" style="display:block; margin: 0 auto 12px;">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#E0E0E0" stroke-width="10"/>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#2B6E8A" stroke-width="10" stroke-dasharray="257.6 56.1" stroke-dashoffset="78.5" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                            <text x="60" y="56" text-anchor="middle" font-size="28" font-weight="700" fill="#2C2C2C" font-family="Inter, sans-serif">82%</text>
+                            <text x="60" y="72" text-anchor="middle" font-size="10" fill="#6B6358" font-family="Inter, sans-serif">n = 412</text>
+                        </svg>
                         <div class="stat-description">Find sunscreen application inconvenient</div>
                     </div>
                     <div class="research-stat">
-                        <div class="stat-percentage">73%</div>
+                        <svg viewBox="0 0 120 120" width="120" height="120" style="display:block; margin: 0 auto 12px;">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#E0E0E0" stroke-width="10"/>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#D4A843" stroke-width="10" stroke-dasharray="229.3 84.3" stroke-dashoffset="78.5" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                            <text x="60" y="56" text-anchor="middle" font-size="28" font-weight="700" fill="#2C2C2C" font-family="Inter, sans-serif">73%</text>
+                            <text x="60" y="72" text-anchor="middle" font-size="10" fill="#6B6358" font-family="Inter, sans-serif">n = 178</text>
+                        </svg>
                         <div class="stat-description">Of parents struggle with children's sun protection</div>
                     </div>
                     <div class="research-stat">
-                        <div class="stat-percentage">91%</div>
+                        <svg viewBox="0 0 120 120" width="120" height="120" style="display:block; margin: 0 auto 12px;">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#E0E0E0" stroke-width="10"/>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#43A047" stroke-width="10" stroke-dasharray="285.9 27.8" stroke-dashoffset="78.5" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                            <text x="60" y="56" text-anchor="middle" font-size="28" font-weight="700" fill="#2C2C2C" font-family="Inter, sans-serif">91%</text>
+                            <text x="60" y="72" text-anchor="middle" font-size="10" fill="#6B6358" font-family="Inter, sans-serif">n = 412</text>
+                        </svg>
                         <div class="stat-description">Would use a quick spray service if available</div>
                     </div>
                 </div>
+                <p style="font-size: 12px; color: var(--warm-gray); margin-top: 10px; font-style: italic;">Source: Sun Mist beachgoer survey, Summer 2025. Margin of error ±4.8% at 95% confidence. Parent subset n = 178.</p>
 
                 <h3>Qualitative Field Observations</h3>
                 <p>We spent 28 hours observing beach behaviors across five different beaches, documenting sunscreen application patterns, pain points, and micro-moments where an intervention could occur.</p>
@@ -1311,16 +1332,89 @@
                 <div class="matrix-container">
                     <h4 style="text-align: center; margin-bottom: 30px; color: var(--ocean-blue);">Competitive Positioning Matrix</h4>
                     <p style="text-align: center; font-size: 13px; color: var(--warm-gray); margin-bottom: 40px;">Coverage Quality vs. Convenience</p>
-                    <svg class="matrix" viewBox="0 0 600 600">
+                    <svg class="matrix" viewBox="0 0 600 600" style="max-width: 600px; margin: 0 auto; display: block;">
+                        <defs>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                            <filter id="dropShadow">
+                                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/>
+                            </filter>
+                            <linearGradient id="matrixBg" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.5"/>
+                                <stop offset="100%" stop-color="#F5EDE3" stop-opacity="0.3"/>
+                            </linearGradient>
+                            <linearGradient id="sunMistGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#D4A843"/>
+                                <stop offset="100%" stop-color="#E8835C"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Background quadrants -->
+                        <rect x="1" y="1" width="298" height="298" fill="#E8F4F8" opacity="0.35" rx="4"/>
+                        <rect x="301" y="1" width="298" height="298" fill="#F5EDE3" opacity="0.2" rx="4"/>
+                        <rect x="1" y="301" width="298" height="298" fill="#F5EDE3" opacity="0.15" rx="4"/>
+                        <rect x="301" y="301" width="298" height="298" fill="#F5EDE3" opacity="0.25" rx="4"/>
+
                         <!-- Grid lines -->
-                        <line x1="0" y1="300" x2="600" y2="300" stroke="#E0E0E0" stroke-width="2"/>
-                        <line x1="300" y1="0" x2="300" y2="600" stroke="#E0E0E0" stroke-width="2"/>
-                        
+                        <line x1="0" y1="300" x2="600" y2="300" stroke="#C0C0C0" stroke-width="1.5" stroke-dasharray="4,4"/>
+                        <line x1="300" y1="0" x2="300" y2="600" stroke="#C0C0C0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+                        <!-- Axes -->
+                        <line x1="0" y1="598" x2="600" y2="598" stroke="#2B6E8A" stroke-width="2"/>
+                        <line x1="2" y1="0" x2="2" y2="600" stroke="#2B6E8A" stroke-width="2"/>
+
                         <!-- Axis labels -->
-                        <text x="50" y="550" font-size="13" font-weight="600" fill="#2B6E8A">Low</text>
-                        <text x="540" y="550" font-size="13" font-weight="600" fill="#2B6E8A">High</text>
-                        <text x="20" y="50" font-size="13" font-weight="600" fill="#2B6E8A">High</text>
-                        <text x="540" y="30" font-size="13" font-weight="600" fill="#2B6E8A">Low</text>
+                        <text x="300" y="590" font-size="12" font-weight="700" fill="#2B6E8A" text-anchor="middle" font-family="Inter, sans-serif">CONVENIENCE →</text>
+                        <text x="16" y="300" font-size="12" font-weight="700" fill="#2B6E8A" text-anchor="middle" font-family="Inter, sans-serif" transform="rotate(-90, 16, 300)">COVERAGE QUALITY →</text>
+
+                        <!-- Quadrant labels -->
+                        <text x="150" y="30" font-size="10" fill="#2B6E8A" text-anchor="middle" font-family="Inter, sans-serif" opacity="0.5">High Coverage / Low Convenience</text>
+                        <text x="450" y="30" font-size="10" fill="#2B6E8A" text-anchor="middle" font-family="Inter, sans-serif" opacity="0.5">High Coverage / High Convenience</text>
+                        <text x="150" y="580" font-size="10" fill="#2B6E8A" text-anchor="middle" font-family="Inter, sans-serif" opacity="0.5">Low Coverage / Low Convenience</text>
+                        <text x="450" y="580" font-size="10" fill="#2B6E8A" text-anchor="middle" font-family="Inter, sans-serif" opacity="0.5">Low Coverage / High Convenience</text>
+
+                        <!-- Competitor: Traditional Sunscreen (high coverage, low convenience) -->
+                        <circle cx="140" cy="110" r="42" fill="#2B6E8A" opacity="0.12"/>
+                        <circle cx="140" cy="110" r="32" fill="#2B6E8A" opacity="0.2" filter="url(#dropShadow)"/>
+                        <text x="140" y="106" font-size="11" font-weight="600" fill="#1A4A5E" text-anchor="middle" font-family="Inter, sans-serif">Traditional</text>
+                        <text x="140" y="120" font-size="11" font-weight="600" fill="#1A4A5E" text-anchor="middle" font-family="Inter, sans-serif">Sunscreen</text>
+
+                        <!-- Competitor: Spray Booths (moderate-high convenience, moderate coverage) -->
+                        <circle cx="420" cy="230" r="36" fill="#A8D5E2" opacity="0.15"/>
+                        <circle cx="420" cy="230" r="28" fill="#A8D5E2" opacity="0.3" filter="url(#dropShadow)"/>
+                        <text x="420" y="226" font-size="11" font-weight="600" fill="#1A4A5E" text-anchor="middle" font-family="Inter, sans-serif">Spray</text>
+                        <text x="420" y="240" font-size="11" font-weight="600" fill="#1A4A5E" text-anchor="middle" font-family="Inter, sans-serif">Booths</text>
+
+                        <!-- Competitor: Beach Vendors (moderate both) -->
+                        <circle cx="260" cy="280" r="34" fill="#6B6358" opacity="0.1"/>
+                        <circle cx="260" cy="280" r="26" fill="#6B6358" opacity="0.2" filter="url(#dropShadow)"/>
+                        <text x="260" y="276" font-size="11" font-weight="600" fill="#4A4A4A" text-anchor="middle" font-family="Inter, sans-serif">Beach</text>
+                        <text x="260" y="290" font-size="11" font-weight="600" fill="#4A4A4A" text-anchor="middle" font-family="Inter, sans-serif">Vendors</text>
+
+                        <!-- Competitor: DIY Aerosol (low both) -->
+                        <circle cx="170" cy="440" r="30" fill="#E8835C" opacity="0.1"/>
+                        <circle cx="170" cy="440" r="22" fill="#E8835C" opacity="0.2" filter="url(#dropShadow)"/>
+                        <text x="170" y="436" font-size="11" font-weight="600" fill="#8B5A3C" text-anchor="middle" font-family="Inter, sans-serif">DIY</text>
+                        <text x="170" y="450" font-size="11" font-weight="600" fill="#8B5A3C" text-anchor="middle" font-family="Inter, sans-serif">Aerosol</text>
+
+                        <!-- Competitor: No Protection (worst) -->
+                        <circle cx="100" cy="520" r="24" fill="#ccc" opacity="0.15"/>
+                        <circle cx="100" cy="520" r="18" fill="#ccc" opacity="0.25" filter="url(#dropShadow)"/>
+                        <text x="100" y="516" font-size="10" font-weight="600" fill="#999" text-anchor="middle" font-family="Inter, sans-serif">No</text>
+                        <text x="100" y="528" font-size="10" font-weight="600" fill="#999" text-anchor="middle" font-family="Inter, sans-serif">Protection</text>
+
+                        <!-- SUN MIST — top right, with emphasis -->
+                        <circle cx="480" cy="80" r="52" fill="url(#sunMistGrad)" opacity="0.12"/>
+                        <circle cx="480" cy="80" r="42" fill="url(#sunMistGrad)" opacity="0.2"/>
+                        <circle cx="480" cy="80" r="34" fill="url(#sunMistGrad)" opacity="0.35" filter="url(#glow)"/>
+                        <text x="480" y="76" font-size="13" font-weight="800" fill="#B8912E" text-anchor="middle" font-family="Playfair Display, serif">Sun Mist</text>
+                        <text x="480" y="92" font-size="9" font-weight="600" fill="#D4A843" text-anchor="middle" font-family="Inter, sans-serif">★ TARGET POSITION</text>
+
+                        <!-- Arrow showing Sun Mist's differentiation -->
+                        <line x1="300" y1="250" x2="450" y2="110" stroke="#D4A843" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+                        <polygon points="450,110 442,118 446,108" fill="#D4A843" opacity="0.5"/>
                     </svg>
 
                     <div style="margin-top: 60px; background: var(--sky); padding: 25px; border-radius: 8px;">
@@ -2257,6 +2351,35 @@
                 <p class="intro-text">We mapped detailed journeys for two distinct user scenarios to understand touchpoints, emotional states, pain points, and opportunities for intervention.</p>
 
                 <h3>Journey 1: Sarah (Busy Parent) — First-Time Use</h3>
+                <div style="background: white; border-radius: 12px; padding: 24px 20px 8px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+                    <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--ocean-blue); font-weight: 600; margin-bottom: 8px;">Emotional Arc</p>
+                    <svg viewBox="0 0 700 120" style="width:100%; height:auto;">
+                        <defs>
+                            <linearGradient id="arcFill1" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#43A047" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="#E8835C" stop-opacity="0.05"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Grid -->
+                        <line x1="50" y1="15" x2="680" y2="15" stroke="#eee" stroke-width="0.5"/>
+                        <line x1="50" y1="55" x2="680" y2="55" stroke="#eee" stroke-width="0.5"/>
+                        <line x1="50" y1="95" x2="680" y2="95" stroke="#eee" stroke-width="0.5"/>
+                        <text x="8" y="19" font-size="8" fill="#999" font-family="Inter, sans-serif">Positive</text>
+                        <text x="8" y="59" font-size="8" fill="#999" font-family="Inter, sans-serif">Neutral</text>
+                        <text x="8" y="99" font-size="8" fill="#999" font-family="Inter, sans-serif">Negative</text>
+                        <!-- Emotion line: Stress → Anxiety → Curious → Convinced → Relief → Satisfied → Content -->
+                        <path d="M 95 82 L 190 95 L 285 55 L 380 32 L 475 22 L 570 18 L 665 15" fill="none" stroke="#2B6E8A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 95 82 L 190 95 L 285 55 L 380 32 L 475 22 L 570 18 L 665 15 L 665 95 L 95 95 Z" fill="url(#arcFill1)" opacity="0.4"/>
+                        <!-- Dots -->
+                        <circle cx="95" cy="82" r="4" fill="#E8835C"/><text x="95" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Arrive</text>
+                        <circle cx="190" cy="95" r="4" fill="#E8835C"/><text x="190" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Realize</text>
+                        <circle cx="285" cy="55" r="4" fill="#D4A843"/><text x="285" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Notice</text>
+                        <circle cx="380" cy="32" r="4" fill="#2B6E8A"/><text x="380" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Approach</text>
+                        <circle cx="475" cy="22" r="4" fill="#43A047"/><text x="475" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Service</text>
+                        <circle cx="570" cy="18" r="4" fill="#43A047"/><text x="570" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Payment</text>
+                        <circle cx="665" cy="15" r="4" fill="#43A047"/><text x="665" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Relax</text>
+                    </svg>
+                </div>
                 <div class="journey-map">
                     <div class="journey-title">A busy parent discovers and tries Sun Mist for the first time</div>
                     <div class="journey-stages">
@@ -2299,6 +2422,32 @@
                 </div>
 
                 <h3>Journey 2: Marcus (Weekend Warrior) — Reapplication Scenario</h3>
+                <div style="background: white; border-radius: 12px; padding: 24px 20px 8px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+                    <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--ocean-blue); font-weight: 600; margin-bottom: 8px;">Emotional Arc</p>
+                    <svg viewBox="0 0 600 120" style="width:100%; height:auto;">
+                        <defs>
+                            <linearGradient id="arcFill2" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#2B6E8A" stop-opacity="0.15"/>
+                                <stop offset="100%" stop-color="#D4A843" stop-opacity="0.05"/>
+                            </linearGradient>
+                        </defs>
+                        <line x1="50" y1="15" x2="570" y2="15" stroke="#eee" stroke-width="0.5"/>
+                        <line x1="50" y1="55" x2="570" y2="55" stroke="#eee" stroke-width="0.5"/>
+                        <line x1="50" y1="95" x2="570" y2="95" stroke="#eee" stroke-width="0.5"/>
+                        <text x="8" y="19" font-size="8" fill="#999" font-family="Inter, sans-serif">Positive</text>
+                        <text x="8" y="59" font-size="8" fill="#999" font-family="Inter, sans-serif">Neutral</text>
+                        <text x="8" y="99" font-size="8" fill="#999" font-family="Inter, sans-serif">Negative</text>
+                        <!-- Emotion line: Focused → Aware(dip) → Intrigued → Impressed → Energized → Converted -->
+                        <path d="M 90 35 L 186 65 L 282 45 L 378 20 L 474 15 L 560 12" fill="none" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 90 35 L 186 65 L 282 45 L 378 20 L 474 15 L 560 12 L 560 95 L 90 95 Z" fill="url(#arcFill2)" opacity="0.4"/>
+                        <circle cx="90" cy="35" r="4" fill="#2B6E8A"/><text x="90" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Playing</text>
+                        <circle cx="186" cy="65" r="4" fill="#E8835C"/><text x="186" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Break</text>
+                        <circle cx="282" cy="45" r="4" fill="#D4A843"/><text x="282" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Peer</text>
+                        <circle cx="378" cy="20" r="4" fill="#43A047"/><text x="378" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Spray</text>
+                        <circle cx="474" cy="15" r="4" fill="#43A047"/><text x="474" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Back</text>
+                        <circle cx="560" cy="12" r="4" fill="#43A047"/><text x="560" y="112" font-size="7" fill="#666" text-anchor="middle" font-family="Inter, sans-serif">Reflect</text>
+                    </svg>
+                </div>
                 <div class="journey-map">
                     <div class="journey-title">An active player reapplies sunscreen mid-tournament without leaving the game</div>
                     <div class="journey-stages">
@@ -2804,6 +2953,7 @@
                 </div>
 
                 <p class="intro-text">Six-week pilot program results demonstrating product-market fit and business viability across all user segments.</p>
+                <p style="font-size: 12px; color: var(--warm-gray); font-style: italic; margin-top: -15px; margin-bottom: 30px;">Pilot conducted across 3 Ocean City, MD beaches over 42 operating days (June–July 2025). Data from 3,570 total service interactions across 4 operators.</p>
 
                 <div class="metrics-dashboard">
                     <div class="metric-card">
