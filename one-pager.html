@@ -1089,7 +1089,167 @@
 <!-- ════════════ MIST BANNER ════════════ -->
 <div class="mist-banner">
   <div class="mist-banner-content">
-    <div class="mist-icon">💨</div>
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 600px; height: auto; margin-bottom: 20px;">
+      <defs>
+        <linearGradient id="bannerSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#D6EEF5"/>
+          <stop offset="60%" stop-color="#E8F4F8"/>
+          <stop offset="100%" stop-color="#A8D5E2"/>
+        </linearGradient>
+        <linearGradient id="bannerSand" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#F5EDE3"/>
+          <stop offset="100%" stop-color="#E8D9C9"/>
+        </linearGradient>
+        <radialGradient id="bannerSunGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFF8E1" stop-opacity="0.9"/>
+          <stop offset="50%" stop-color="#F0D68A" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#F0D68A" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="bannerMist"><feGaussianBlur stdDeviation="2.5"/></filter>
+        <filter id="bannerShadow">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+          <feOffset dx="1" dy="3"/>
+          <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+          <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- Sky -->
+      <rect width="600" height="145" fill="url(#bannerSky)"/>
+      <!-- Sun -->
+      <circle cx="520" cy="40" r="50" fill="url(#bannerSunGlow)"/>
+      <circle cx="520" cy="40" r="22" fill="#F0D68A"/>
+      <circle cx="520" cy="40" r="18" fill="#FFE47A"/>
+      <!-- Sun rays -->
+      <g stroke="#F0D68A" stroke-width="1.5" stroke-linecap="round" opacity="0.4">
+        <line x1="520" y1="10" x2="520" y2="3"/>
+        <line x1="548" y1="18" x2="554" y2="12"/>
+        <line x1="555" y1="40" x2="563" y2="40"/>
+        <line x1="492" y1="18" x2="486" y2="12"/>
+      </g>
+      <!-- Clouds -->
+      <g opacity="0.5">
+        <ellipse cx="100" cy="30" rx="40" ry="14" fill="#fff"/>
+        <ellipse cx="130" cy="24" rx="35" ry="12" fill="#fff"/>
+        <ellipse cx="70" cy="28" rx="28" ry="10" fill="#F8F8F8"/>
+      </g>
+      <g opacity="0.35">
+        <ellipse cx="350" cy="50" rx="35" ry="12" fill="#fff"/>
+        <ellipse cx="380" cy="45" rx="30" ry="10" fill="#fff"/>
+      </g>
+      <!-- Sea birds -->
+      <path d="M160 20 Q165 15 170 20" fill="none" stroke="#5A7A8A" stroke-width="1" opacity="0.4"/>
+      <path d="M175 14 Q179 10 183 14" fill="none" stroke="#5A7A8A" stroke-width="0.8" opacity="0.3"/>
+      <path d="M440 28 Q444 24 448 28" fill="none" stroke="#5A7A8A" stroke-width="0.8" opacity="0.3"/>
+      <!-- Ocean -->
+      <rect x="0" y="120" width="600" height="30" fill="#5BA0B5" opacity="0.4"/>
+      <path d="M0 125 Q30 118 60 125 T120 125 T180 125 T240 125 T300 125 T360 125 T420 125 T480 125 T540 125 T600 122" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+      <path d="M0 135 Q40 128 80 135 T160 135 T240 135 T320 135 T400 135 T480 135 T560 135 T600 132" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.2"/>
+      <!-- Sand -->
+      <rect x="0" y="145" width="600" height="75" fill="url(#bannerSand)"/>
+      <!-- Sand texture -->
+      <circle cx="50" cy="165" r="1" fill="#D4C4A8" opacity="0.3"/>
+      <circle cx="120" cy="175" r="0.8" fill="#D4C4A8" opacity="0.25"/>
+      <circle cx="200" cy="160" r="1.1" fill="#D4C4A8" opacity="0.3"/>
+      <circle cx="310" cy="180" r="0.9" fill="#D4C4A8" opacity="0.25"/>
+      <circle cx="450" cy="170" r="1" fill="#D4C4A8" opacity="0.3"/>
+      <circle cx="540" cy="162" r="0.8" fill="#D4C4A8" opacity="0.2"/>
+
+      <!-- Operator figure — organic -->
+      <g filter="url(#bannerShadow)">
+        <!-- Shadow -->
+        <ellipse cx="220" cy="210" rx="22" ry="5" fill="#000" opacity="0.1"/>
+        <!-- Head -->
+        <ellipse cx="220" cy="152" rx="8" ry="10" fill="#D4A256"/>
+        <!-- Cap -->
+        <path d="M212 147 Q220 142 228 147 Q226 150 220 148 Q214 150 212 147Z" fill="#2B6E8A"/>
+        <!-- Face -->
+        <circle cx="217" cy="152" r="1" fill="#3A2A1A"/>
+        <circle cx="223" cy="152" r="1" fill="#3A2A1A"/>
+        <path d="M218 155 Q220 157 222 155" fill="none" stroke="#9A7A4A" stroke-width="0.6"/>
+        <!-- Polo torso -->
+        <path d="M211 163 Q213 161 220 162 Q227 161 229 163 Q231 172 230 182 Q228 184 222 185 L218 185 Q212 184 210 182 Q209 172 211 163Z" fill="#2B6E8A"/>
+        <!-- Collar -->
+        <path d="M215 162 Q218 165 220 164 Q222 165 225 162" fill="none" stroke="#1A4A5E" stroke-width="0.8"/>
+        <!-- Arms -->
+        <path d="M211 165 Q205 168 200 175 Q198 180 200 184" fill="#D4A256"/>
+        <circle cx="200" cy="185" r="2.5" fill="#D4A256"/>
+        <path d="M229 165 Q235 168 238 175 Q239 180 237 184" fill="#D4A256"/>
+        <!-- Shorts -->
+        <path d="M209 182 Q210 185 213 188 L218 198 Q220 199 222 198 L225 188 Q228 185 229 182Z" fill="#D4A843" opacity="0.9"/>
+        <!-- Legs -->
+        <path d="M214 196 Q213 202 214 208 Q214 210 215 212" fill="#6B5B4F"/>
+        <path d="M220 196 Q220 202 219 208 Q219 210 219 212" fill="#6B5B4F"/>
+        <path d="M222 196 Q222 202 223 208 Q223 210 223 212" fill="#6B5B4F"/>
+        <path d="M228 196 Q229 202 228 208 Q228 210 227 212" fill="#6B5B4F"/>
+        <!-- Sandals -->
+        <path d="M212 211 Q215 214 220 214 Q222 212 220 211" fill="#8B6F47"/>
+        <path d="M221 211 Q224 214 229 214 Q231 212 229 211" fill="#8B6F47"/>
+        <!-- Sprayer tank -->
+        <path d="M229 160 Q232 159 242 160 Q244 161 244 165 L243 180 Q242 182 240 183 L233 183 Q231 182 230 180Z" fill="#1A4A5E"/>
+        <!-- Hose + wand -->
+        <path d="M230 172 Q215 176 205 178 Q200 180 198 183" fill="none" stroke="#1A4A5E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M198 183 L180 175 L168 170" stroke="#2B6E8A" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="168" cy="170" r="2" fill="#A8D5E2"/>
+      </g>
+
+      <!-- Mist spray cloud -->
+      <g filter="url(#bannerMist)" opacity="0.5">
+        <circle cx="155" cy="160" r="10" fill="#A8D5E2" opacity="0.3"/>
+        <circle cx="140" cy="155" r="8" fill="#A8D5E2" opacity="0.25"/>
+        <circle cx="148" cy="168" r="7" fill="#D6EEF5" opacity="0.2"/>
+        <circle cx="132" cy="162" r="6" fill="#A8D5E2" opacity="0.2"/>
+        <circle cx="160" cy="172" r="5" fill="#D6EEF5" opacity="0.15"/>
+      </g>
+      <circle cx="148" cy="158" r="2" fill="#A8D5E2" opacity="0.5"/>
+      <circle cx="138" cy="162" r="1.5" fill="#A8D5E2" opacity="0.45"/>
+      <circle cx="155" cy="165" r="1.8" fill="#D6EEF5" opacity="0.4"/>
+      <circle cx="142" cy="170" r="1.2" fill="#A8D5E2" opacity="0.35"/>
+
+      <!-- Customer being misted — organic -->
+      <g filter="url(#bannerShadow)">
+        <ellipse cx="130" cy="210" rx="16" ry="4" fill="#000" opacity="0.08"/>
+        <!-- Head -->
+        <ellipse cx="130" cy="156" rx="7" ry="9" fill="#8B6B42"/>
+        <!-- Hair -->
+        <path d="M123 150 Q127 142 130 140 Q133 142 137 150 Q139 155 137 158 Q134 152 130 150 Q126 152 123 158 Q121 155 123 150Z" fill="#3A2A18"/>
+        <!-- Face -->
+        <circle cx="128" cy="155" r="0.8" fill="#2A1A0A"/>
+        <circle cx="132" cy="155" r="0.8" fill="#2A1A0A"/>
+        <path d="M129 158 Q130 159 131 158" fill="none" stroke="#6A5030" stroke-width="0.5"/>
+        <!-- T-shirt -->
+        <path d="M122 166 Q124 164 130 165 Q136 164 138 166 Q140 174 139 184 Q137 186 132 186 L128 186 Q123 186 121 184 Q120 174 122 166Z" fill="#E8835C"/>
+        <!-- Arms out (being sprayed) -->
+        <path d="M122 168 Q116 170 112 176 Q110 180 112 185" fill="#8B6B42"/>
+        <path d="M138 168 Q144 170 148 176 Q150 180 148 185" fill="#8B6B42"/>
+        <!-- Shorts -->
+        <path d="M121 183 Q122 186 124 188 L128 198 Q130 199 132 198 L134 188 Q136 186 137 183Z" fill="#2B6E8A"/>
+        <!-- Legs -->
+        <path d="M125 196 Q124 202 125 208 Q125 210 126 212" fill="#7A5B35"/>
+        <path d="M130 196 Q130 202 129 208 Q129 210 129 212" fill="#7A5B35"/>
+        <path d="M132 196 Q132 202 133 208 Q133 210 133 212" fill="#7A5B35"/>
+        <path d="M137 196 Q138 202 137 208 Q137 210 136 212" fill="#7A5B35"/>
+      </g>
+
+      <!-- Beach umbrella in background -->
+      <g opacity="0.4">
+        <line x1="420" y1="135" x2="420" y2="190" stroke="#9C7E5C" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M420 135 C420 115 390 120 390 140" fill="#E8835C"/>
+        <path d="M420 135 C420 115 450 120 450 140" fill="#fff"/>
+      </g>
+      <!-- Beach towel -->
+      <rect x="405" y="192" width="40" height="15" rx="2" fill="#A8D5E2" opacity="0.3" transform="rotate(-3 425 199)"/>
+
+      <!-- Distant figures -->
+      <g opacity="0.25">
+        <ellipse cx="480" cy="175" rx="4" ry="5" fill="#6B6358"/>
+        <ellipse cx="495" cy="177" rx="3" ry="4" fill="#6B6358"/>
+      </g>
+
+      <!-- Footprints -->
+      <ellipse cx="260" cy="185" rx="3" ry="1.2" fill="#D4C4A8" opacity="0.2" transform="rotate(-8 260 185)"/>
+      <ellipse cx="268" cy="188" rx="3" ry="1.2" fill="#D4C4A8" opacity="0.18" transform="rotate(5 268 188)"/>
+      <ellipse cx="275" cy="185" rx="3" ry="1.2" fill="#D4C4A8" opacity="0.15" transform="rotate(-3 275 185)"/>
+    </svg>
     <p>Light Mist · Clean Application · Instant Coverage</p>
   </div>
 </div>
